@@ -1,0 +1,10 @@
+user,password_enabled,mfa_active
+<root_account>,not_supported,true
+akash,true,false
+anitha,true,true
+brandon,true,false
+elise,true,false
+helene,true,false
+paras,true,false
+rakesh,true,false
+sunesh,true,true

@@ -1,0 +1,1186 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>DEVSECOPS ON AWS USING CLOUD-NATIVE SERVICES</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="index.html">Welcome</a></li><li class="expanded affix "><a href="intro/index.html">Introduction</a></li><li class="expanded affix "><a href="intro/agenda.html">Agenda</a></li><li class="expanded affix "><a href="about-us/about-akash.html">About - Akash Mahajan</a></li><li class="expanded affix "><a href="about-us/about-sunesh.html">About - Sunesh Govindaraj</a></li><li class="expanded affix "><a href="about-us/about-appsecco.html">About - Appsecco</a></li><li class="expanded affix "><a href="intro/disclaimer.html">Disclaimer</a></li><li class="expanded "><a href="automated-defence-against-public-s3-buckets/index.html"><strong aria-hidden="true">1.</strong> Automated Defence against public S3 buckets</a></li><li><ol class="section"><li class="expanded "><a href="automated-defence-against-public-s3-buckets/deployment.html"><strong aria-hidden="true">1.1.</strong> Deployment</a></li><li class="expanded "><a href="automated-defence-against-public-s3-buckets/attack.html"><strong aria-hidden="true">1.2.</strong> Attack</a></li><li class="expanded "><a href="automated-defence-against-public-s3-buckets/defence.html"><strong aria-hidden="true">1.3.</strong> Defence</a></li></ol></li><li class="expanded "><a href="automated-defence-against-ssh-bruteforce/index.html"><strong aria-hidden="true">2.</strong> Automated Defence against SSH Bruteforce</a></li><li><ol class="section"><li class="expanded "><a href="automated-defence-against-ssh-bruteforce/deployment-of-machine.html"><strong aria-hidden="true">2.1.</strong> Deployment of Machine</a></li><li class="expanded "><a href="automated-defence-against-ssh-bruteforce/deployment-of-defence.html"><strong aria-hidden="true">2.2.</strong> Deployment of Defence</a></li><li class="expanded "><a href="automated-defence-against-ssh-bruteforce/defence-working-against-attack.html"><strong aria-hidden="true">2.3.</strong> Defence working against Attack</a></li></ol></li><li class="expanded "><a href="automated-security-baseline/index.html"><strong aria-hidden="true">3.</strong> Automated Security Baseline for a new AWS Account</a></li><li><ol class="section"><li class="expanded "><a href="automated-security-baseline/what-all-to-consider.html"><strong aria-hidden="true">3.1.</strong> What to consider</a></li><li class="expanded "><a href="automated-security-baseline/identity-and-access-management.html"><strong aria-hidden="true">3.2.</strong> Identity and Access Management</a></li><li class="expanded "><a href="automated-security-baseline/logging.html"><strong aria-hidden="true">3.3.</strong> Logging</a></li><li class="expanded "><a href="automated-security-baseline/monitoring.html"><strong aria-hidden="true">3.4.</strong> Monitoring</a></li><li class="expanded "><a href="automated-security-baseline/networking.html"><strong aria-hidden="true">3.5.</strong> Networking</a></li><li class="expanded "><a href="automated-security-baseline/other-benchmark-rules.html"><strong aria-hidden="true">3.6.</strong> Other Benchmark Rules that do not apply</a></li></ol></li><li class="expanded "><a href="playbooks-and-runbooks-for-incident-response/index.html"><strong aria-hidden="true">4.</strong> Playbooks and Runbooks for Incident Response</a></li><li><ol class="section"><li class="expanded "><a href="playbooks-and-runbooks-for-incident-response/runbooks.html"><strong aria-hidden="true">4.1.</strong> Runbooks</a></li><li class="expanded "><a href="playbooks-and-runbooks-for-incident-response/playbooks.html"><strong aria-hidden="true">4.2.</strong> Playbooks</a></li><li class="expanded "><a href="playbooks-and-runbooks-for-incident-response/real-world-usage-and-examples.html"><strong aria-hidden="true">4.3.</strong> Real World Usage and Examples</a></li></ol></li><li class="expanded "><a href="security-dashboard/index.html"><strong aria-hidden="true">5.</strong> Security Dashboard using Cloud-Native services</a></li><li><ol class="section"><li class="expanded "><a href="security-dashboard/building-a-security-dashboard.html"><strong aria-hidden="true">5.1.</strong> Building a security dashboard</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">DEVSECOPS ON AWS USING CLOUD-NATIVE SERVICES</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#learning-by-doing---devsecops-using-cloud-native-services" id="learning-by-doing---devsecops-using-cloud-native-services">Learning By Doing - DevSecOps using Cloud Native Services</a></h1>
+<p><img src="cover.png" alt="cover page" /></p>
+<h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>The title of the workshop is <strong>DevSecOps on AWS using Cloud Native Services</strong>.</p>
+<p>DevSecOps is changing enterprise IT the same way how DevOps transformed enterprise Dev. The complexity of operations is ever increasing and with the advent and extensive usage of public cloud the risk is ever greater.</p>
+<p>We need to gear up for this world and a workable approach is to tackle this new world with the same enthusiasm as developers have taken up.</p>
+<p>During this village we will teach the audience how to use cloud Native services such as Serverless (Lambda), Container run-times (Docker) and Container schedulers (ECS, Fargate). to enable near real time detection and blocking of security attacks, analyse incidents and even do remediation of potential security holes before they become a problem. We will also demonstrate how can we create informative security information related dashboard for the DevSecOps teams.</p>
+<p><img src="intro/../images/workshop-intro.png" alt="DevSecOps on AWS using Cloud Native" /></p>
+<h2><a class="header" href="#why-cloud-native-and-what-does-cloud-native-mean" id="why-cloud-native-and-what-does-cloud-native-mean">Why Cloud Native and what does Cloud Native mean</a></h2>
+<p><img src="intro/../images/words-meaning.png" alt="Cloud Native, Automated" /></p>
+<h2><a class="header" href="#additional-reading" id="additional-reading">Additional reading</a></h2>
+<ul>
+<li><a href="https://landing.google.com/sre/sre-book/chapters/eliminating-toil/">Eliminating Toil</a></li>
+<li><a href="https://landing.google.com/sre/sre-book/chapters/testing-reliability/">Testing for Reliability</a></li>
+</ul>
+<h1><a class="header" href="#agenda-of-the-workshop" id="agenda-of-the-workshop">Agenda of the workshop</a></h1>
+<p>Please note</p>
+<ol>
+<li>This is a 2 hour workshop which means we have 120 minutes</li>
+<li>We plan to take you through 5 scenarios</li>
+<li>Scenario 4 is more of a concept note but very important to understand for any DevSecOps practioner</li>
+</ol>
+<table><thead><tr><th align="center">Scenario Number</th><th align="left">Topic</th><th align="center">Approximate Time (In minutes)</th></tr></thead><tbody>
+<tr><td align="center">--</td><td align="left">Introduction and sharing repo URL</td><td align="center">10</td></tr>
+<tr><td align="center">1.</td><td align="left">Defending against public S3 buckets</td><td align="center">30</td></tr>
+<tr><td align="center">2.</td><td align="left">Automating response against SSH Bruteforce attacks</td><td align="center">30</td></tr>
+<tr><td align="center">3.</td><td align="left">Automating baseline security hardening for new AWS account</td><td align="center">20</td></tr>
+<tr><td align="center">4.</td><td align="left">Playbooks and Runbooks for AWS Incident Response</td><td align="center">15</td></tr>
+<tr><td align="center">5.</td><td align="left">Security Dashboard using Static Site Generator</td><td align="center">10</td></tr>
+<tr><td align="center">--</td><td align="left">Question and Answers with the audience</td><td align="center">5</td></tr>
+</tbody></table>
+<h1><a class="header" href="#akash-mahajan" id="akash-mahajan">Akash Mahajan</a></h1>
+<p><img src="about-us/../images/akash-slack.png" alt="Akash" /></p>
+<p>Co-Founder and Director, Appsecco</p>
+<h2><a class="header" href="#author" id="author">Author</a></h2>
+<table><thead><tr><th>Cover</th><th>Details</th></tr></thead><tbody>
+<tr><td><img src="about-us/../images/burp-suite-essentials.png" alt="Burp Suite Essentials" /></td><td>Book - <a href="https://www.packtpub.com/hardware-and-creative/burp-suite-essentials">Burp Suite Essentials</a>, Published by PacktPub November 2014, ISBN 978-1783550111</td></tr>
+<tr><td><img src="about-us/../images/security-automation-with-ansible2.png" alt="Security Automation with Ansible2" /></td><td>Book – <a href="https://www.packtpub.com/virtualization-and-cloud/security-automation-ansible-2">Security Automation with Ansible2</a>, Published by PacktPub December 2017, ISBN 9781788394512</td></tr>
+</tbody></table>
+<h2><a class="header" href="#reviewer" id="reviewer">Reviewer</a></h2>
+<table><thead><tr><th align="center">Thing</th><th align="left">Details</th></tr></thead><tbody>
+<tr><td align="center"><img src="about-us/../images/terraform-up-and-running-2ed.png" alt="Terraform - Up &amp; Running 2ed" /></td><td align="left">Book - <a href="https://www.oreilly.com/library/view/terraform-up/9781492046899/">Terraform - Up &amp; Running: Writing Infrastructure as Code 2ed</a>, Published by O'Reilly September 2019, ISBN 9781492046899</td></tr>
+<tr><td align="center"><img src="about-us/../images/recon-village-logo.png" alt="Recon Village @ DefCon" /></td><td align="left">Conference - <a href="https://reconvillage.org/">Recon Village</a>, Organised by <a href="https://twitter.com/upgoingstar">Shubham Mittal</a> and crew</td></tr>
+<tr><td align="center"><img src="about-us/../images/cloud-village-logo.png" alt="Cloud Village @ Defcon" /></td><td align="left">Conference - <a href="https://cloud-village.org/">Cloud Village</a>, Organised by <a href="https://twitter.com/jayeshsch">Jayesh S Chauhan</a> and crew</td></tr>
+</tbody></table>
+<h2><a class="header" href="#online" id="online">Online</a></h2>
+<table><thead><tr><th>Account</th><th>Details</th></tr></thead><tbody>
+<tr><td>Website</td><td><a href="https://akashm.com">https://akashm.com</a></td></tr>
+<tr><td>Twitter</td><td><a href="https://twitter.com/makash">@makash</a></td></tr>
+<tr><td>LinkedIn</td><td><a href="https://www.linkedin.com/in/akashm">Akash Mahajan</a></td></tr>
+</tbody></table>
+<h1><a class="header" href="#sunesh-govindaraj" id="sunesh-govindaraj">Sunesh Govindaraj</a></h1>
+<p><img src="about-us/../images/sunesh-profile.png" alt="Sunesh" /></p>
+<p>Security Engineer, Appsecco</p>
+<h2><a class="header" href="#about-me" id="about-me">About Me</a></h2>
+<p>Sunesh Govindaraj is a Security Engineer with Appsecco. He has a strong passion for Security and building solutions that would solve real-world security problems. Having nearly four years of experience in DevOps, Security and Web Application Development, he has worked on multiple web technologies and contributed to their DevSecOps cycle. Along that line, he has always ensured that security is given prime importance. He is also credited with vulnerability discovery in OpenSource products with CVEs to his name such as CVE-2019-16936, CVE-2019-16937, CVE-2019-16938, CVE-2019-16939, CVE-2019-16940.</p>
+<h2><a class="header" href="#online-1" id="online-1">Online</a></h2>
+<table><thead><tr><th>Account</th><th>Details</th></tr></thead><tbody>
+<tr><td>Website</td><td><a href="https://suneshgovind.com">https://suneshgovind.com</a></td></tr>
+<tr><td>Twitter</td><td><a href="https://twitter.com/suneshgovind">@suneshgovind</a></td></tr>
+<tr><td>LinkedIn</td><td><a href="https://www.linkedin.com/in/sunesh-govindaraj">Sunesh Govindaraj</a></td></tr>
+</tbody></table>
+<h1><a class="header" href="#appsecco" id="appsecco">Appsecco</a></h1>
+<p>Appsecco is a specialist cloud and application security company, founded in 2015, with
+presence in London, Bangalore and Boston and providing industry-leading security advice that is firmly grounded in commercial reality.</p>
+<table><thead><tr><th align="left">Info</th><th align="left">Details</th></tr></thead><tbody>
+<tr><td align="left">Website</td><td align="left">https://appsecco.com</td></tr>
+<tr><td align="left">Technical blog</td><td align="left"><a href="https://blog.appsecco.com">https://blog.appsecco.com</a></td></tr>
+<tr><td align="left">Open Source @ Appsecco</td><td align="left"><a href="https://github.com/appsecco">https://github.com/appsecco</a></td></tr>
+<tr><td align="left">Email</td><td align="left"><a href="mailto:contact@appsecco.com">contact@appsecco.com</a></td></tr>
+<tr><td align="left">Phone</td><td align="left"><a href="tel://+442031370558">+44 20 3137 0558</a></td></tr>
+</tbody></table>
+<p><img src="about-us/../images/about-appsecco.png" alt="About Appsecco" /></p>
+<h2><a class="header" href="#team-capabilities" id="team-capabilities">Team Capabilities</a></h2>
+<ul>
+<li>OSCP</li>
+<li>Certified Kubernetes Administrators</li>
+<li>Certified Kubernetes Application Developers</li>
+<li>CREST Certified</li>
+<li>AWS Security Certified</li>
+<li>Published Authors</li>
+<li>Security Community Leaders (OWASP/null0x00)</li>
+<li>Release bunch of OSS for Pentesting and DevSecOps teams</li>
+</ul>
+<h1><a class="header" href="#disclaimer-and-license" id="disclaimer-and-license">Disclaimer and License</a></h1>
+<p><img src="intro/images/mit.png" alt="MIT License" /></p>
+<p>The MIT License</p>
+<p>Copyright (c) 2020 Appsecco, Ltd. <a href="https://appsecco.com">https://appsecco.com</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+<h1><a class="header" href="#automated-defence-against-public-s3-buckets" id="automated-defence-against-public-s3-buckets">Automated Defence against public S3 buckets</a></h1>
+<h2><a class="header" href="#cloud-custodian" id="cloud-custodian">Cloud Custodian</a></h2>
+<ul>
+<li>Custodian is an open source rules engine for fleet management in AWS </li>
+<li>YAML DSL for policies based on querying resources or subscribe to events then apply filters and take actions. </li>
+<li>Outputs to Amazon S3, Amazon Cloud Watch Logs, Amazon Cloud Watch Metrics</li>
+</ul>
+<blockquote>
+<p>Consider this is an open-source replacement for AWS Cloud Config :)</p>
+</blockquote>
+<p><img src="automated-defence-against-public-s3-buckets/images/cloud-custodian-architecture.png" alt="cloud-custodian-architecture" /></p>
+<h3><a class="header" href="#overview" id="overview">Overview</a></h3>
+<p>Organizations can use Custodian to manage their AWS environments by ensuring compliance to security policies, tag policies, garbage collection of unused resources, and cost management via off-hours resource management, all from the same place. Custodian policies are written in simple YAML configuration files that specify given resource types and are constructed from a vocabulary of filters and actions.</p>
+<h3><a class="header" href="#references" id="references">References</a></h3>
+<ul>
+<li><a href="https://cloudcustodian.io">Cloud Custodian Documentation</a></li>
+<li><a href="http://aws-de-media.s3.amazonaws.com/images/TransformationDay/TDay_Slides/Capital_One_AWS.pdf">AWS Security with Cloud Custodian</a></li>
+</ul>
+<h1><a class="header" href="#deployment" id="deployment">Deployment</a></h1>
+<h2><a class="header" href="#setting-up-infrastructure-for-aws" id="setting-up-infrastructure-for-aws">Setting up infrastructure for AWS</a></h2>
+<p><code>cd</code> into <code>infra-deployment</code> directory. We have the Ansible Playbook that we use for creating S3 buckets</p>
+<pre><code class="language-bash">export uniquename=&lt;some-random-value&gt;
+export AWS_PROFILE=devsecops-adef
+ansible-playbook main.yml
+</code></pre>
+<blockquote>
+<p>Replace <some-random-value> with a random value, just to increase the randomness of the bucket name. The playbook works with your AWS_PROFILE in your environment. This will work only if you have created a profile using <code>aws configure</code></p>
+</blockquote>
+<p>This script will use the stored AWS credentials to deploy the S3 buckets with random files and permissions</p>
+<p><img src="automated-defence-against-public-s3-buckets/images/deploy-infra-success.png" alt="deploy infra success" /></p>
+<h1><a class="header" href="#attack" id="attack">Attack</a></h1>
+<h2><a class="header" href="#enumerating-public-s3-buckets" id="enumerating-public-s3-buckets">Enumerating public s3 buckets</a></h2>
+<ul>
+<li>To enumerate public S3 buckets in the account we will use a Open Source tool <code>slurp</code>. The Go binary built from <a href="https://github.com/suneshgovind/slurp">github</a> and is present in the current repo.</li>
+</ul>
+<pre><code>chmod +x slurp
+</code></pre>
+<blockquote>
+<p>Before running slurp, ensure that you have the AWS_PROFILE variable exported</p>
+</blockquote>
+<p>Execute slurp with the following command to find Public S3 buckets,</p>
+<pre><code>./slurp internal
+</code></pre>
+<p><img src="automated-defence-against-public-s3-buckets/images/before-defence-buckets.png" alt="Bucket finder output" /></p>
+<h1><a class="header" href="#defence" id="defence">Defence</a></h1>
+<h2><a class="header" href="#installing-cloud-custodian" id="installing-cloud-custodian">Installing Cloud Custodian</a></h2>
+<pre><code class="language-bash">python3 -m virtualenv custodian
+source custodian/bin/activate
+pip install c7n
+</code></pre>
+<h2><a class="header" href="#writing-policy" id="writing-policy">Writing policy</a></h2>
+<p>A policy specifies the following items</p>
+<ul>
+<li>The type of resource to run the policy against</li>
+<li>Filters to narrow down the set of resources</li>
+<li>Actions to take on the filtered set of resources</li>
+</ul>
+<h2><a class="header" href="#policy-to-look-for-public-access-buckets" id="policy-to-look-for-public-access-buckets">Policy to look for public access buckets</a></h2>
+<ul>
+<li>Create new policy <code>vi s3-public-access.yml</code></li>
+</ul>
+<pre><code class="language-yaml">policies:
+  - name: s3-global-access
+    description: |
+      Finds global access s3 buckets in your account
+    resource: s3
+    region: ap-south-1
+    filters:
+      - type: global-grants
+    actions:
+      - no-op
+</code></pre>
+<ul>
+<li>We can validate the policy before executing by running the following command</li>
+</ul>
+<pre><code class="language-bash">custodian validate s3-public-access.yml
+</code></pre>
+<ul>
+<li>Perform the dryrun by running the following command</li>
+</ul>
+<pre><code class="language-bash">custodian run --dryrun -s output s3-public-access.yml
+</code></pre>
+<ul>
+<li>Execute the policy by running the following command</li>
+</ul>
+<pre><code class="language-bash">custodian run -s output s3-public-access.yml
+</code></pre>
+<ul>
+<li>Then access the buckets public using </li>
+</ul>
+<pre><code>cat output/s3-global-access/resources.json | grep autodefence
+</code></pre>
+<p><img src="automated-defence-against-public-s3-buckets/images/public-access-buckets.png" alt="s3 policy execution dryrun" /></p>
+<h2><a class="header" href="#applying-the-changes-to-fix-this-issue" id="applying-the-changes-to-fix-this-issue">Applying the changes to fix this issue</a></h2>
+<ul>
+<li>Update the policy with below changes <code>vi s3-public-access.yml</code></li>
+</ul>
+<pre><code class="language-yaml">policies:
+  - name: s3-global-access
+    description: |
+      Finds global access s3 buckets in your account and fix them
+    resource: s3
+    region: ap-south-1
+    filters:
+      - type: global-grants
+    actions:
+      - type: delete-global-grants
+        grantees:
+          - &quot;http://acs.amazonaws.com/groups/global/AllUsers&quot;
+          - &quot;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&quot;
+</code></pre>
+<ul>
+<li>Now validate and execute the policy to apply the changes to fix the s3 buckets public access</li>
+</ul>
+<pre><code class="language-bash">custodian validate s3-public-access.yml
+custodian run --dryrun -s output s3-public-access.yml
+custodian run -s output s3-public-access.yml
+</code></pre>
+<ul>
+<li>Then run the <code>slurp</code> to scan for the s3 buckets again to see if the defence applied</li>
+</ul>
+<pre><code class="language-bash">./slurp internal
+</code></pre>
+<p>The result will not return any Public S3 buckets that we created</p>
+<h1><a class="header" href="#automated-defence-against-ssh-bruteforce" id="automated-defence-against-ssh-bruteforce">Automated Defence against SSH Bruteforce</a></h1>
+<p>In this scenario,</p>
+<ul>
+<li>We will setup our infrastructure, which consists of a VM with SSH password authentication</li>
+<li>We will setup the serverless components required for Automated Defence</li>
+<li>We will perform a bruteforce attack on the SSH service and see how to defend against the attack using serverless and automated defence approach</li>
+</ul>
+<h1><a class="header" href="#deployment-of-machine" id="deployment-of-machine">Deployment of Machine</a></h1>
+<p>We will deploy the instance with an exposed SSH service through the following steps,</p>
+<ol>
+<li>We will create an instance in EC2</li>
+<li>We will add a rule in Security Group for port <code>22</code> to be open to everyone</li>
+<li>Test the instance by connecting it over SSH</li>
+</ol>
+<h1><a class="header" href="#deployment-of-defence" id="deployment-of-defence">Deployment of Defence</a></h1>
+<p>We will follow the below sections to setup CloudWatch and Serverless defence against SSH Bruteforce attacks</p>
+<h2><a class="header" href="#installing-cloudwatch-agent-on-ssh-instance" id="installing-cloudwatch-agent-on-ssh-instance">Installing CloudWatch Agent on SSH Instance</a></h2>
+<p>We will need to create an IAM Role for the CloudWatch agent running in EC2 instance to be able to push logs to CloudWatch. For this we will create a role with the policy <code>CloudWatchAgentServerPolicy</code> and will have to attach it to the Instance.</p>
+<p>Once we have attached the role to the instance, we can download and install the agent from the official repo. Log in into the machine and run the below commands,</p>
+<pre><code>wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+</code></pre>
+<p>Once the file download is complete, we can install the debian package,</p>
+<pre><code>sudo dpkg -i amazon-cloudwatch-agent.deb
+</code></pre>
+<p>Once the installation is complete, we will need to create the configuration for CloudWatch Agent to run with. </p>
+<pre><code class="language-json">{
+  &quot;agent&quot;: {
+    &quot;run_as_user&quot;: &quot;root&quot;
+  },
+  &quot;logs&quot;: {
+    &quot;logs_collected&quot;: {
+      &quot;files&quot;: {
+        &quot;collect_list&quot;: [
+          {
+            &quot;file_path&quot;: &quot;/var/log/auth.log&quot;,
+            &quot;log_group_name&quot;: &quot;ssh_logs&quot;,
+            &quot;log_stream_name&quot;: &quot;{instance_id}&quot;
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<p>Copy and save the above configuration to a file <code>config.json</code> in your Linux machine. Configuration can also be generated interactively using the <code>config-wizard</code> command - </p>
+<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+</code></pre>
+<p>Essentially in the configuration we ask the CloudWatch agent to look for <code>/var/log/auth.log</code> where the ssh logs are stored and push them to CloudWatch under the log group <code>ssh_logs</code> with the stream name same as the instance ID.</p>
+<p>To start the CloudWatch Agent run the below command,</p>
+<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:configuration-file-path -s
+</code></pre>
+<blockquote>
+<p>Update the <code>configuration-file-path</code> field with the absolute path to your <code>config.json</code> file</p>
+<p><code>-a</code> is for choosing an Action through which we do <code>fetch-config</code> to select our config file</p>
+<p><code>-m</code> is for mode</p>
+<p><code>-s</code> is to start the agent</p>
+</blockquote>
+<p>We can verify that the logs are being pushed to CloudWatch by heading to CloudWatch console - Log Groups section</p>
+<h2><a class="header" href="#create-cloudwatch-metric-and-alarm" id="create-cloudwatch-metric-and-alarm">Create CloudWatch Metric and Alarm</a></h2>
+<p>Now that we have the SSH logs in CloudWatch, we can create a metric to filter failed attempts and use an alarm to notify us about a possible attack. To create a metric, we need to understand the pattern in which SSH logs are created. </p>
+<p>A sample failed attempt log would look like below,</p>
+<pre><code>Feb 24 06:58:52 ip-172-31-40-226 sshd[3340]: Invalid user mno from 127.0.0.1 port 38168
+</code></pre>
+<p>To filter the logs that fall under the above pattern, we will use this filter,</p>
+<pre><code>[Mon, day, timestamp, ip, id, status=&quot;Invalid&quot;, user, username, from, srcip, ...]
+</code></pre>
+<p>To create the metric, we will use the below command,</p>
+<pre><code class="language-bash">aws logs put-metric-filter \
+--log-group-name ssh_logs \
+--filter-name FailedSSHAttempts \
+--filter-pattern '[Mon, day, timestamp, ip, id, status=&quot;Invalid&quot;, user, username, from, srcip, ...]' \
+--metric-transformations \
+metricName=failed_ssh_attempts,metricNamespace=LogMetrics,metricValue=1,defaultValue=0
+</code></pre>
+<p>The command will create a metric with the name <code>failed_ssh_attempts</code> that we can further use it for creating an alarm. Before creating an Alarm we will need an Simple Notification Service (SNS) topic created which would notified when there is an alarm. To create a SNS topic,</p>
+<pre><code class="language-bash">aws sns create-topic --name bruteforce-trigger-lambda
+</code></pre>
+<p>The above command will create a SNS topic <code>bruteforce-trigger-lambda</code> and return the Arn for the resource. We will use that Arn to create the alarm using the below command,</p>
+<pre><code class="language-bash">aws cloudwatch put-metric-alarm \
+--alarm-name SSHBruteForceAlarm \
+--metric-name failed_ssh_attempts \
+--namespace LogMetrics \
+--statistic Sum \
+--period 300 \
+--threshold 5 \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--alarm-actions arn:aws:sns:ap-south-1:394310921697:bruteforce-trigger-lambda
+</code></pre>
+<p>The command will create an alarm using the metric that we had created before and if there are more than or equal to 5 events present during a time period of 5 minutes (300 seconds), then the alarm will trigger the SNS topic <code>bruteforce-trigger-lambda</code> that we created.</p>
+<h2><a class="header" href="#serverless-defence-for-identifying-the-ip-and-blocking-it" id="serverless-defence-for-identifying-the-ip-and-blocking-it">Serverless Defence for identifying the IP and blocking it</a></h2>
+<p>We will deploy two serverless applications on Lambda. The first serverless function will have HTTP endpoints that would block a given IP and also show the blocking history for the Access Control List (ACL). All this data gets stored in DynamoDB to maintain history.</p>
+<p><code>cd</code> into the <code>serverless-fn-blockip</code> directory. The following parameters are configurable before deployment,</p>
+<ul>
+<li><strong>region</strong>: AWS Region to deploy in. ACL must be in the same region</li>
+<li><strong>accessToken</strong>: Access token used to authorize requests to block IPs</li>
+<li><strong>aclID</strong>: ACL that will be used for blocking</li>
+<li><strong>stateTableName</strong>: DynamoDB table that will be created to maintain current blocking state</li>
+<li><strong>historyTableName</strong>: DynamoDB table that will be created to maintain action history</li>
+<li><strong>ruleValidity</strong>: Time (in minutes) after which the IP is unblocked</li>
+</ul>
+<p>Configure the above fields in <code>config.js</code> file,</p>
+<pre><code class="language-javascript">module.exports = {
+    region: &quot;&lt;AWS_REGION&gt;&quot;,
+    accessToken: &quot;&lt;SOME_RANDOM_STRING&gt;&quot;,
+    aclId: &quot;&lt;VPC_ACL_ID&gt;&quot;,
+    stateTableName: &quot;ip_block_state&quot;,
+    historyTableName: &quot;ip_block_history&quot;,
+    ruleValidity: 10
+}
+</code></pre>
+<blockquote>
+<p>Make sure to modify at least the <strong>region</strong>, <strong>aclId</strong> and <strong>accessToken</strong> based on your requirements before deployment.</p>
+</blockquote>
+<p>To deploy the function we use <code>Serverless framework</code> which in turn would create a CloudFormation stack to get the required resources deployed.  <code>cd</code> into the directory and run the below commands,</p>
+<pre><code class="language-bash">npm install
+#Create DynamoDB tables
+node initDb.js
+serverless deploy
+</code></pre>
+<p>The deploy command would return the <code>endpoints</code> that we require once the stack is created. Note down the endpoints, for use in future.</p>
+<p>For the next Serverless function, <code>cd</code> into <code>serverless-fn-trigger</code> directory. The following parameters are configurable before deployment,</p>
+<ul>
+<li><strong>region</strong>: AWS Region to deploy in. Same as the previous function</li>
+<li><strong>logGroup</strong>: Name of the log group (in our case ssh_logs)</li>
+<li><strong>blockIPLambdaUrl</strong>: blockIP function's HTTP Endpoint returned in previous step</li>
+<li><strong>blockIPLambdaAccessToken</strong>: Access token used to authorize requests to block IPs</li>
+<li><strong>attackThreshold</strong>: Minimum number of events from a single IP to block the IP</li>
+<li><strong>startTimeOffset</strong>: Time offset from current time after which the requests are considered in minutes</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+	region: &quot;&lt;AWS_REGION&gt;&quot;,
+    logGroup: &quot;&lt;LOG_GROUP_NAME&gt;&quot;,
+    blockIPLambdaUrl: &quot;&lt;BLOCK_IP_ENDPOINT&gt;&quot;,
+    blockIPLambdaAccessToken: &quot;&lt;BLOCK_IP_ENDPOINT_ACCESS_TOKEN&gt;&quot;
+    attackThreshold: 3,
+    startTimeOffset: 5,
+}
+</code></pre>
+<blockquote>
+<p>Make sure to modify at least the <strong>region</strong>, <strong>logGroup</strong>, <strong>blockIPLambdaUrl</strong> and <strong>blockIPLambdaAccessToken</strong> before deployment</p>
+</blockquote>
+<p>In the <code>serverless.yml</code> configuration file, we will have to add the SNS Topic ARN and name as the trigger for the lambda function that is to be deployed. This will connect our previous infrastructure (CloudWatch Logs, Metric and Alarms) with the Lambda functions.</p>
+<p>Update the values <code>&lt;AWS_ARN_SNS_TOPIC&gt;</code> and <code>&lt;SNS_TOPIC_NAME&gt;</code> under the <code>functions</code> section of the config file,</p>
+<pre><code class="language-yaml">functions:  
+  vpchandler:
+    handler: handler.vpchandler
+    events:
+     - sns:
+        arn: &lt;AWS_ARN_SNS_TOPIC&gt;
+        topicName: &lt;SNS_TOPIC_NAME&gt;
+</code></pre>
+<p>Once done, to deploy the serverless application, run the below commands,</p>
+<pre><code class="language-bash">npm install
+serverless deploy
+</code></pre>
+<h2><a class="header" href="#defence-working-against-attack" id="defence-working-against-attack">Defence working against Attack</a></h2>
+<p>Now that we have the defence set up, we can verify the defence working by performing an bruteforce attack on the instance. We will use a simple bash script to attack our instance with a predefined list of usernames and passwords.</p>
+<pre><code>chmod u+x bruteforce_attack.sh
+./bruteforce_attack.sh
+</code></pre>
+<p>You will be prompted to enter an IP. Enter the public IP address of the SSH instance, the script will attempt 10 combinations of username and password. This would be enough for the defence to kick in, since we have set our Alarm Threshold as 5.</p>
+<p>We could go to the CloudWatch console, to see that the Alarm goes to <code>in-alarm</code> state and triggers our SNS topic. Once the SNS topic is triggered, our Lambda function <code>serverless-fn-trigger</code> will get triggered which will do the analysis on the source of the attack and count of requests that came from a single IP.</p>
+<p>Once it determines the number of requests coming from a single IP, it will call the other Lambda function <code>serverless-fn-blockip</code> with an IP to block. The IP will be added to Dynamo Table and also the Network ACL of the VPC that our SSH machine belongs to.</p>
+<p>We can go to the ACL to see that traffic to the IP the requests originated from is added with a DENY.</p>
+<h1><a class="header" href="#automated-security-baseline-for-a-new-aws-account" id="automated-security-baseline-for-a-new-aws-account">Automated Security Baseline for a new AWS Account</a></h1>
+<p>In this scenario, for a new AWS account we will see,</p>
+<ol>
+<li>the important factors to consider</li>
+<li>how to create a secure baseline</li>
+<li>how to automate the baseline</li>
+</ol>
+<p>To create a secure baseline we will follow the CIS Foundation benchmark recommendations. The recommendations include four main categories,</p>
+<ol>
+<li>Identity and Access Management</li>
+<li>Logging</li>
+<li>Monitoring</li>
+<li>Networking</li>
+</ol>
+<p>We will perform changes and modify certain configuration in the four broad sections above to harden our new AWS account. CIS benchmarks provides a list of rules or configuration checks that we can do to check if our account is secure enough or not.</p>
+<p>To perform the audit and make changes, we would need a account with administrative privileges. We will use the root account to create another account called <code>security-auditor</code> or <code>iamadmin</code> and create access keys for the account. We will use <code>AWS-CLI</code> for most of the audit that we do.</p>
+<h1><a class="header" href="#identity-and-access-management" id="identity-and-access-management">Identity and Access Management</a></h1>
+<h3><a class="header" href="#iam-password-policy" id="iam-password-policy">IAM Password Policy</a></h3>
+<ul>
+<li>Password should have at the least one character of - Uppercase, Lowercase, Symbol and Number.</li>
+<li>Minimum length of password - 14 or more</li>
+<li>No password reuse</li>
+<li>Password expiry - 90 days or less</li>
+</ul>
+<pre><code>aws iam update-account-password-policy \
+--require-uppercase-characters \
+--require-lowercase-characters \
+--require-numbers \
+--require-symbols \
+--password-reuse-prevention 24 \
+--max-password-age 90
+</code></pre>
+<h3><a class="header" href="#ensure-a-support-role-has-been-created-to-manage-incidents-with-aws-support" id="ensure-a-support-role-has-been-created-to-manage-incidents-with-aws-support">Ensure a support role has been created to manage incidents with AWS Support</a></h3>
+<p><strong>Get IAM user's ARN</strong></p>
+<pre><code>aws iam get-user --user-name &lt;USERNAME_OF_USER&gt;
+</code></pre>
+<p><strong>Trust policy</strong></p>
+<p>Save it as a file <code>file:///tmp/TrustPolicy.json</code> with the ARN of the user from previous step</p>
+<pre><code class="language-json">{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: {
+                &quot;AWS&quot;: &quot;&lt;ARN_OF_THE_USER&gt;&quot;
+            },
+            &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+        }
+    ]
+}
+</code></pre>
+<p><strong>Create IAM Role</strong></p>
+<pre><code>aws iam create-role \
+--role-name aws_support_iam_role \
+--assume-role-policy-document file:///tmp/TrustPolicy.json
+</code></pre>
+<p><strong>Attach role to <code>AWSSupportAccess</code> managed policy</strong></p>
+<pre><code>aws iam attach-role-policy \
+--policy-arn 'arn:aws:iam::aws:policy/AWSSupportAccess' \
+--role-name aws_support_iam_role
+</code></pre>
+<h1><a class="header" href="#logging" id="logging">Logging</a></h1>
+<h3><a class="header" href="#ensure-cloudtrail-is-enabled-in-all-regions" id="ensure-cloudtrail-is-enabled-in-all-regions">Ensure CloudTrail is enabled in all regions</a></h3>
+<ol>
+<li>Navigate to CloudTrail console</li>
+<li>Click on Create Trail</li>
+<li>Enter a <code>Trail name</code> and choose <code>Yes</code> for <code>Apply trail to all regions</code>
+<img src="automated-security-baseline/./images/create-trail-1.png" alt="" /></li>
+<li>Under <code>Storage location</code>, choose <code>Yes</code> to Create a new S3 bucket and give a unique name for <code>S3 bucket</code></li>
+<li>Click on <code>Advanced</code> and choose <code>Yes</code> to <code>Encrypt log files with KMS</code> and <code>Create a new KMS key</code>. Give a KMS key name</li>
+<li>Choose <code>Yes</code> for <code>Enable log file validation</code>
+<img src="automated-security-baseline/./images/cloudtrail-s3-bucket-config.png" alt="" /></li>
+</ol>
+<h3><a class="header" href="#ensure-cloudtrail-trails-are-integrated-with-cloudwatch-logs" id="ensure-cloudtrail-trails-are-integrated-with-cloudwatch-logs">Ensure CloudTrail trails are integrated with CloudWatch Logs</a></h3>
+<ol>
+<li>In the CloudTrail console, click on <code>Trails</code> on the left panel</li>
+<li>Click on the Trail created in previous step</li>
+<li>Scroll down to find <code>CloudWatch Logs</code> and click on <code>Configure</code></li>
+<li>Leave the default CloudTrail log group name and click on <code>Continue</code>
+<img src="automated-security-baseline/./images/cloudtrail-cloudwatch-integration-1.png" alt="" /></li>
+<li>You will be prompted to create a Role with which CloudTrail with put logs to CloudWatch. Click on <code>Allow</code> at the bottom,
+<img src="automated-security-baseline/./images/cloudtrail-cloudwatch-integration-2.png" alt="" /></li>
+</ol>
+<h3><a class="header" href="#ensure-s3-bucket-access-logging-is-enabled-on-the-cloudtrail-s3-bucket" id="ensure-s3-bucket-access-logging-is-enabled-on-the-cloudtrail-s3-bucket">Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket</a></h3>
+<ol>
+<li>Navigate to S3 console</li>
+<li>Click on the CloudTrail bucket created previously</li>
+<li>Click on <code>Properties</code> tab</li>
+<li>Click on <code>Server Access Logging</code></li>
+<li>Select <code>Enabled</code></li>
+<li>Choose the bucket created during CloudTrail creation part as Target and enter a <code>Target Prefix</code>
+<img src="automated-security-baseline/./images/s3-bucket-access-logging.png" alt="" /></li>
+</ol>
+<h3><a class="header" href="#ensure-vpc-flow-logging-is-enabled-in-all-vpcs" id="ensure-vpc-flow-logging-is-enabled-in-all-vpcs">Ensure VPC flow logging is enabled in all VPCs</a></h3>
+<p><strong>Get VPC ID</strong></p>
+<p><em>Note down the VpcId</em></p>
+<pre><code>aws ec2 describe-vpcs
+</code></pre>
+<p><strong>Create Log Group</strong></p>
+<pre><code>aws logs create-log-group \
+--log-group-name vpc-flow-logs
+</code></pre>
+<p><strong>Create IAM Role</strong></p>
+<p><em>Policy to write to CloudWatch</em></p>
+<p>Save to a file <code>/tmp/vpc_cloudwatch_role.json</code></p>
+<pre><code class="language-json">{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: {
+                &quot;Service&quot;: &quot;vpc-flow-logs.amazonaws.com&quot;
+            },
+            &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+        }
+    ]
+}
+</code></pre>
+<p><em>Create role with Trust Policy document</em></p>
+<pre><code>aws iam create-role \
+--role-name flowLogsRole \
+--assume-role-policy-document file:///tmp/vpc_cloudwatch_role.json
+</code></pre>
+<p><em>Attach Role policy to role created</em></p>
+<pre><code>aws iam attach-role-policy \
+--policy-arn 'arn:aws:iam::aws:policy/CloudWatchLogsFullAccess' \
+--role-name flowLogsRole
+</code></pre>
+<p><strong>Enable Flow logs</strong></p>
+<pre><code>aws ec2 create-flow-logs \
+--resource-type VPC \
+--resource-ids &lt;VPC_ID&gt; \
+--traffic-type REJECT \
+--log-group-name vpc-flow-logs \
+--deliver-logs-permission-arn &lt;IAM_ROLE_ARN&gt;
+</code></pre>
+<blockquote>
+<p>&lt;VPC_ID&gt; and &lt;IAM_ROLE_ARN&gt; should be substituted before running the previous command. The create command should be repeated for all VPCs</p>
+</blockquote>
+<h1><a class="header" href="#monitoring" id="monitoring">Monitoring</a></h1>
+<p><strong>Create SNS Topic and Subscription</strong></p>
+<p>This SNS topic and subscription will be used for all monitoring enabled in the next steps</p>
+<pre><code>aws sns create-topic --name monitoring-topic
+</code></pre>
+<pre><code>aws sns subscribe \
+--topic-arn &lt;ARN_OF_TOPIC&gt; \
+--protocol email \
+--notification-endpoint &lt;admin@example.com&gt;
+</code></pre>
+<blockquote>
+<p>&lt;ARN_OF_TOPIC&gt; and <a href="mailto:automated-security-baseline/admin@example.com">admin@example.com</a> should be substituted with proper values before running the previous command. Note down the ARN of topic for future use</p>
+</blockquote>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-unauthorized-api-calls" id="ensure-a-log-metric-filter-and-alarm-exist-for-unauthorized-api-calls">Ensure a log metric filter and alarm exist for unauthorized API calls</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name UnAuthorizedAPICalls \
+--filter-pattern '{($.errorCode=&quot;*UnauthorizedOperation&quot;) || ($.errorCode=&quot;AccessDenied*&quot;)}' \
+--metric-transformations metricName=UnAuthorizedAPICalls,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name UnAuthorizedAPICallsAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name UnAuthorizedAPICalls \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-management-console-sign-in-without-mfa" id="ensure-a-log-metric-filter-and-alarm-exist-for-management-console-sign-in-without-mfa">Ensure a log metric filter and alarm exist for Management Console sign-in without MFA</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name NoMFASignIn \
+--filter-pattern '{($.eventName=&quot;ConsoleLogin&quot;) &amp;&amp; ($.additionalEventData.MFAUsed !=&quot;Yes&quot;)}' \
+--metric-transformations metricName=NoMFASignIn,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name NoMFASignInAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name NoMFASignIn \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-usage-of-root-account" id="ensure-a-log-metric-filter-and-alarm-exist-for-usage-of-root-account">Ensure a log metric filter and alarm exist for usage of &quot;root&quot; account</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name RootAccountUsage \
+--filter-pattern '{$.userIdentity.type=&quot;Root&quot; &amp;&amp; $.userIdentity.invokedBy NOT EXISTS &amp;&amp; $.eventType !=&quot;AwsServiceEvent&quot;}' \
+--metric-transformations metricName=RootAccountUsage,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name RootAccountUsageAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name RootAccountUsage \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-iam-policy-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-iam-policy-changes">Ensure a log metric filter and alarm exist for IAM policy changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name IAMPolicyChange \
+--filter-pattern '{($.eventName=DeleteGroupPolicy) || ($.eventName=DeleteRolePolicy) || ($.eventName=DeleteUserPolicy) || ($.eventName=PutGroupPolicy) || ($.eventName=PutRolePolicy) || ($.eventName=PutUserPolicy) || ($.eventName=CreatePolicy) || ($.eventName=DeletePolicy) || ($.eventName=CreatePolicyVersion) || ($.eventName=DeletePolicyVersion) || ($.eventName=AttachRolePolicy) || ($.eventName=DetachRolePolicy) || ($.eventName=AttachUserPolicy) || ($.eventName=DetachUserPolicy) || ($.eventName=AttachGroupPolicy) || ($.eventName=DetachGroupPolicy)}' \
+--metric-transformations metricName=IAMPolicyChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name IAMPolicyChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name IAMPolicyChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-cloudtrail-configuration-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-cloudtrail-configuration-changes">Ensure a log metric filter and alarm exist for CloudTrail configuration changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name CloudTrailConfigChange \
+--filter-pattern '{($.eventName=CreateTrail) || ($.eventName=UpdateTrail) || ($.eventName=DeleteTrail) || ($.eventName=StartLogging) || ($.eventName=StopLogging)}' \
+--metric-transformations metricName=CloudTrailConfigChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name CloudTrailConfigChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name CloudTrailConfigChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-aws-management-console-authentication-failures" id="ensure-a-log-metric-filter-and-alarm-exist-for-aws-management-console-authentication-failures">Ensure a log metric filter and alarm exist for AWS Management Console authentication failures</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name ConsoleAuthFailure \
+--filter-pattern '{($.eventName=ConsoleLogin) &amp;&amp; ($.errorMessage=&quot;Failed authentication&quot;)}' \
+--metric-transformations metricName=ConsoleAuthFailure,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name ConsoleAuthFailureAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name ConsoleAuthFailure \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-disabling-or-scheduled-deletion-of-customer-created-cmks" id="ensure-a-log-metric-filter-and-alarm-exist-for-disabling-or-scheduled-deletion-of-customer-created-cmks">Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer created CMKs</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name DisableOrDeleteCMK \
+--filter-pattern '{($.eventSource=kms.amazonaws.com) &amp;&amp; (($.eventName=DisableKey) || ($.eventName=ScheduleKeyDeletion))}' \
+--metric-transformations metricName=DisableOrDeleteCMK,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name DisableOrDeleteCMKAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name DisableOrDeleteCMK \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-s3-bucket-policy-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-s3-bucket-policy-changes">Ensure a log metric filter and alarm exist for S3 bucket policy changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name S3bucketPolicyChange \
+--filter-pattern '{($.eventSource=s3.amazonaws.com) &amp;&amp; (($.eventName=PutBucketAcl) || ($.eventName=PutBucketPolicy) || ($.eventName=PutBucketCors) || ($.eventName=PutBucketLifecycle) || ($.eventName=PutBucketReplication) || ($.eventName=DeleteBucketPolicy) || ($.eventName=DeleteBucketCors) || ($.eventName=DeleteBucketLifecycle) || ($.eventName=DeleteBucketReplication))}' \
+--metric-transformations metricName=S3bucketPolicyChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name S3bucketPolicyChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name S3bucketPolicyChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-aws-config-configuration-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-aws-config-configuration-changes">Ensure a log metric filter and alarm exist for AWS Config configuration changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name AWSConfigChange \
+--filter-pattern '{($.eventSource=config.amazonaws.com) &amp;&amp; (($.eventName=StopConfigurationRecorder) || ($.eventName=DeleteDeliveryChannel) || ($.eventName=PutDeliveryChannel) || ($.eventName=PutConfigurationRecorder))}' \
+--metric-transformations metricName=AWSConfigChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name AWSConfigChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name AWSConfigChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-security-group-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-security-group-changes">Ensure a log metric filter and alarm exist for security group changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name SecurityGroupChange \
+--filter-pattern '{($.eventName=AuthorizeSecurityGroupIngress) || ($.eventName=AuthorizeSecurityGroupEgress) || ($.eventName=RevokeSecurityGroupIngress) || ($.eventName=RevokeSecurityGroupEgress) || ($.eventName=CreateSecurityGroup) || ($.eventName=DeleteSecurityGroup)}' \
+--metric-transformations metricName=SecurityGroupChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name SecurityGroupChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name SecurityGroupChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-access-control-lists-nacl" id="ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-access-control-lists-nacl">Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name NACLChange \
+--filter-pattern '{($.eventName=CreateNetworkAcl) || ($.eventName=CreateNetworkAclEntry) || ($.eventName=DeleteNetworkAcl) || ($.eventName=DeleteNetworkAclEntry) || ($.eventName=ReplaceNetworkAclEntry) || ($.eventName=ReplaceNetworkAclAssociation)}' \
+--metric-transformations metricName=NACLChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name NACLChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name NACLChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-gateways" id="ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-gateways">Ensure a log metric filter and alarm exist for changes to network gateways</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name NetworkGatewayChange \
+--filter-pattern '{($.eventName=CreateCustomerGateway) || ($.eventName=DeleteCustomerGateway) || ($.eventName=AttachInternetGateway) || ($.eventName=CreateInternetGateway) || ($.eventName=DeleteInternetGateway) || ($.eventName=DetachInternetGateway)}' \
+--metric-transformations metricName=NetworkGatewayChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name NetworkGatewayChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name NetworkGatewayChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-route-table-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-route-table-changes">Ensure a log metric filter and alarm exist for route table changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name RouteTableChange \
+--filter-pattern '{($.eventName=CreateRoute) || ($.eventName=CreateRouteTable) || ($.eventName=ReplaceRoute) || ($.eventName=ReplaceRouteTableAssociation) || ($.eventName=DeleteRouteTable) || ($.eventName=DeleteRoute) || ($.eventName=DisassociateRouteTable)}' \
+--metric-transformations metricName=RouteTableChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name RouteTableChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name RouteTableChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-vpc-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-vpc-changes">Ensure a log metric filter and alarm exist for VPC changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name VPCChange \
+--filter-pattern '{($.eventName=CreateVpc) || ($.eventName=DeleteVpc) || ($.eventName=ModifyVpcAttribute) || ($.eventName=AcceptVpcPeeringConnection) || ($.eventName=CreateVpcPeeringConnection) || ($.eventName=DeleteVpcPeeringConnection) || ($.eventName=RejectVpcPeeringConnection) || ($.eventName=AttachClassicLinkVpc) || ($.eventName=DetachClassicLinkVpc) || ($.eventName=DisableVpcClassicLink) || ($.eventName=EnableVpcClassicLink)}' \
+--metric-transformations metricName=VPCChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name VPCChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name VPCChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h1><a class="header" href="#networking" id="networking">Networking</a></h1>
+<h3><a class="header" href="#ensure-the-default-security-group-of-every-vpc-restricts-all-traffic" id="ensure-the-default-security-group-of-every-vpc-restricts-all-traffic">Ensure the default security group of every VPC restricts all traffic</a></h3>
+<ol>
+<li>Navigate to VPC console</li>
+<li>Click on the security Groups on the left panel</li>
+<li>Select <code>Inbound Rules</code> tab and click on <code>Edit</code></li>
+<li>Remove the default rule</li>
+<li>Select <code>Outbound Rules</code> tab and click on <code>Edit</code></li>
+<li>Remove the default rule</li>
+</ol>
+<p>This has to be done for all regions</p>
+<h1><a class="header" href="#other-benchmark-rules-that-do-not-apply-for-a-new-account" id="other-benchmark-rules-that-do-not-apply-for-a-new-account">Other benchmark rules that do not apply for a new account</a></h1>
+<h2><a class="header" href="#identity-and-access-management-1" id="identity-and-access-management-1">Identity and Access Management</a></h2>
+<ol>
+<li>Avoid the use of the &quot;root&quot; account</li>
+<li>Ensure Multi-Factor Authentication (MFA) is enabled for all IAM users that have a console password</li>
+<li>Ensure credentials unused for 90 days or greater are disabled</li>
+<li>Ensure Access keys are rotated every 90 days or less</li>
+<li>Ensure no root account access key exists</li>
+<li>Ensure MDA is enabled for the &quot;root&quot; account</li>
+<li>Ensure hardware MFA is enabled for the &quot;root&quot; account</li>
+<li>Ensure IAM policies are attached only to groups or roles</li>
+<li>Ensure IAM policies that allow full &quot;<em>:</em>&quot; administrative privileges are not created</li>
+</ol>
+<h2><a class="header" href="#logging-1" id="logging-1">Logging</a></h2>
+<ol>
+<li>Ensure AWS Config is enabled in all regions</li>
+<li>Ensure rotation for customer created CMKs is enabled</li>
+</ol>
+<h2><a class="header" href="#networking-1" id="networking-1">Networking</a></h2>
+<ol>
+<li>Ensure no security groups allow ingress from 0.0.0.0/0 to port 22</li>
+<li>Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389</li>
+<li>Ensure routing tables for VPC peering are &quot;least access&quot;</li>
+</ol>
+<h1><a class="header" href="#playbooks-and-runbooks-for-incident-response" id="playbooks-and-runbooks-for-incident-response">Playbooks and Runbooks for Incident Response</a></h1>
+<p>Most of the cloud service providers align their incident response around the life cycle popularised by NIST.</p>
+<p><img src="playbooks-and-runbooks-for-incident-response/images/nist-incident-response-life-cycle.jpg" alt="NIST Incident Response Life Cycle" /></p>
+<p>Monitoring for events and logs supported by AWS Lambda serverless |
+Four main parts</p>
+<ol>
+<li>Preperation</li>
+<li>Detection and Analysis</li>
+<li>Containment, Eradication and Recovery</li>
+<li>Post-incident Activity</li>
+</ol>
+<h2><a class="header" href="#aws-security-incident-response-whitepaper" id="aws-security-incident-response-whitepaper">AWS Security Incident Response Whitepaper</a></h2>
+<p>For AWS the whole process may seem different if we rely on the official <a href="https://d1.awsstatic.com/whitepapers/aws_security_incident_response.pdf">Security Incident Response Whitepaper</a>.</p>
+<p>For AWS the main life cycle events are</p>
+<ol>
+<li>Prepare People and Technology</li>
+<li>Detect and Analyse</li>
+<li>Contain, Remove and Recover</li>
+<li>Iterate by automating response using runbooks and playbooks</li>
+</ol>
+<p><img src="playbooks-and-runbooks-for-incident-response/images/aws+nist-incident-response.jpg" alt="Fundamentals of responding to security incidentswithin acustomer’s AWS Cloud environment" /></p>
+<table><thead><tr><th align="center">Num</th><th align="left">Stage</th><th align="left">Tools and Aids</th></tr></thead><tbody>
+<tr><td align="center">1.</td><td align="left">Preparation - People</td><td align="left">Roles and Responsibilities known and informed</td></tr>
+<tr><td align="center">2.</td><td align="left">Preparation - People</td><td align="left">Owners for assets by appropriate tags</td></tr>
+<tr><td align="center">3.</td><td align="left">Preparation - Technology</td><td align="left">Best practices, standards benchmarks as checklists</td></tr>
+<tr><td align="center">4.</td><td align="left">Preparation - Technology</td><td align="left">Secure by default at the time of creation and continuous config audits</td></tr>
+<tr><td align="center">5.</td><td align="left">Detect and Analyse - Compute</td><td align="left">Monitoring for events and logs supported by AWS Lambda serverless</td></tr>
+<tr><td align="center">6.</td><td align="left">Detect and Analyse - Compute</td><td align="left">If required additional processing by using Fargate tasks (Containers)</td></tr>
+<tr><td align="center">7.</td><td align="left">Detect and Analyse - Compute</td><td align="left">Store raw logs and data and analysis in secure S3 buckets</td></tr>
+<tr><td align="center">8.</td><td align="left">Contain, Remove and Recover - Network Layer</td><td align="left">Using security groups and network ACLs contain the EC2</td></tr>
+<tr><td align="center">9.</td><td align="left">Contain, Remove and Recover - Platform Layer</td><td align="left">Remove any backdoor users and revoke STS tokens</td></tr>
+<tr><td align="center">10.</td><td align="left">Contain, Remove and Recover - Application Layer</td><td align="left">Attach compromised disks to another secure host for forensics</td></tr>
+<tr><td align="center">11.</td><td align="left">Runbooks and Playbooks - Runbook</td><td align="left">To ensure that all standard operating procedures are documented</td></tr>
+<tr><td align="center">12.</td><td align="left">Runbooks and Playbooks - Playbook</td><td align="left">A series of steps to be used in case something fails</td></tr>
+</tbody></table>
+<h3><a class="header" href="#few-resources-that-map-to-the-above-stages" id="few-resources-that-map-to-the-above-stages">Few resources that map to the above stages</a></h3>
+<p>Stage - 1 - Who you gonna call</p>
+<p><img src="playbooks-and-runbooks-for-incident-response/images/people-to-call.jpg" alt="Roles and Responsibilities in an incident response scenario" /></p>
+<p>Stage - 2 - Maintaining Assets using Tags</p>
+<p><img src="playbooks-and-runbooks-for-incident-response/images/tags.png" alt="Owners for assets by appropriate tags" /></p>
+<p>Stage - 3 &amp; 4 - Compliance Checks like CIS Benchmark</p>
+<p><a href="https://blog.appsecco.com/continuous-compliance-audits-against-aws-cis-foundations-benchmark-98794649552f">Blog Post - Continuous benchmark audits</a></p>
+<p>Stage - 5 - CloudWatch Metric and Alarms</p>
+<p><img src="playbooks-and-runbooks-for-incident-response/images/cloudwatch-metric-and-alarms.png" alt="Monitoring for events and logs" /></p>
+<p>Stage - 6 - Using Prowler as Fargate Task to continuously check for CIS benchmark compliance</p>
+<p><img src="playbooks-and-runbooks-for-incident-response/images/prowler-ecs-fargate-stack.png" alt="additional processing by using Fargate tasks" /></p>
+<h2><a class="header" href="#runbooks-and-playbooks" id="runbooks-and-playbooks">Runbooks and Playbooks</a></h2>
+<p>They seem similar but there are a few key differences</p>
+<table><thead><tr><th align="center">Num</th><th align="center">Similarity or Difference</th><th align="left">Runbook</th><th align="left">Playbook</th></tr></thead><tbody>
+<tr><td align="center">1.</td><td align="center">Difference</td><td align="left">Document known procedures</td><td align="left">Document how to investigate/troubleshoot when known thing fails</td></tr>
+<tr><td align="center">2.</td><td align="center">Difference</td><td align="left">Ensures when required, SOP is applied consistently</td><td align="left">Ensures when needed, response is consistent</td></tr>
+<tr><td align="center">3.</td><td align="center">Similarity</td><td align="left">Well documented manual procedures should be automated</td><td align="left">Well documented manual troubleshooting steps should be automated</td></tr>
+<tr><td align="center">4.</td><td align="center">Difference</td><td align="left">Useful post incident to recover and resume normal operations</td><td align="left">Useful when investigating what could be causing failure</td></tr>
+<tr><td align="center">5.</td><td align="center">Difference</td><td align="left">After every successful recovery post incident, runbooks should be reviewed and updated as per learnings</td><td align="left">After every failure, playbooks should be reviewed and updated as per learnings</td></tr>
+</tbody></table>
+<h2><a class="header" href="#real-world-example" id="real-world-example">Real world example</a></h2>
+<p><a href="playbooks-and-runbooks-for-incident-response/real-world-usage-and-examples.html">Real world usage and example</a></p>
+<h1><a class="header" href="#runbooks" id="runbooks">Runbooks</a></h1>
+<blockquote>
+<p>From AWS Well Architected Framework Concepts - https://wa.aws.amazon.com/wat.concept.runbook.en.html</p>
+</blockquote>
+<p>Enable consistent and prompt responses to well understood events by documenting procedures in runbooks. Runbooks are the predefined procedures to achieve a specific outcome. Runbooks should contain the minimum information necessary to successfully perform the procedure. Start with a valid effective manual process, implement it in code and trigger automated execution where appropriate. This ensures consistency, speeds responses, and reduces errors caused by manual processes.</p>
+<h2><a class="header" href="#using-runbooks" id="using-runbooks">Using runbooks</a></h2>
+<p>Runbooks are usually written in the language an orchestrator (Terraform) or provisioner (Ansible/Chef/Puppet) would be able to parse for automation.</p>
+<p>Another interesting tool to look at is <a href="https://www.rundeck.com/new-to-rundeck">Rundeck</a>.</p>
+<h2><a class="header" href="#is-it-a-software" id="is-it-a-software">Is it a software</a></h2>
+<p>It is like any other program that requires a runtime.</p>
+<h1><a class="header" href="#playbooks" id="playbooks">Playbooks</a></h1>
+<blockquote>
+<p>From AWS Well Architected Framework Concepts - https://wa.aws.amazon.com/wat.concept.playbook.en.html</p>
+</blockquote>
+<p>Enable consistent and prompt responses to failure scenarios by documenting the investigation process in playbooks. Playbooks are the predefined steps to perform to identify an issue. The results from any process step are used to determine the next steps to take until the issue is identified or escalated.</p>
+<h2><a class="header" href="#using-playbooks" id="using-playbooks">Using Playbooks</a></h2>
+<p>Playbooks are usually written in the language an orchestrator (Terraform) or provisioner (Ansible/Chef/Puppet) would be able to parse for automation.</p>
+<h2><a class="header" href="#is-it-a-software-1" id="is-it-a-software-1">Is it a software</a></h2>
+<p>It is like any other program that requires a runtime.</p>
+<h1><a class="header" href="#real-world-usage-and-examples-of-runbooks-and-playbooks" id="real-world-usage-and-examples-of-runbooks-and-playbooks">Real World Usage and Examples of Runbooks and Playbooks</a></h1>
+<p><img src="playbooks-and-runbooks-for-incident-response/../images/prep-nist-incident-response-life-cycle.jpg" alt="Preperaing in case EBS data is stolen" /></p>
+<h2><a class="header" href="#example---automating-ebs-volume-encryption-using-ansible" id="example---automating-ebs-volume-encryption-using-ansible">Example - Automating EBS Volume Encryption using Ansible</a></h2>
+<p>EBS volume encryption is a feature provided by AWS to ensure that sensitive data at rest is secured and is in compliance with regulations.</p>
+<h3><a class="header" href="#prerequisites" id="prerequisites">Prerequisites</a></h3>
+<ol>
+<li>The Ansible playbook is written is such a way that it checks for instances and associated volumes that have the tag <code>createdFor</code> with the value <code>volume-encryption</code>. This is done, so that the user can specify which all instance volumes has to be encrypted</li>
+<li>To run the playbook, it is required to have <code>ansible</code> and <code>aws-cli</code>  credentials</li>
+<li>The playbook uses AWS authentication through <code>AWS_PROFILE</code></li>
+</ol>
+<h3><a class="header" href="#playbook-code" id="playbook-code">Playbook Code</a></h3>
+<p>The playbook is written in two parts, the first part (<code>playbook.yml</code>) will check for instances that have the tag <code>createdFor</code> with value <code>volume-encryption</code>. Then it also checks for the list of volumes with the same and also have the <code>Encrypted</code> property with value <code>Not Encrypted</code>.</p>
+<p>After the collection of list of instance volumes to be encrypted, the playbook will loop through the second part (<code>include.yml</code>) for the following steps for all collected instances,</p>
+<ol>
+<li>Stop the EC2 instance</li>
+<li>Create Snapshot of the main volume</li>
+<li>Detach Existing Volume from the instance</li>
+<li>Create a Encrypted Volume with double the size from the created snapshot and attach it to the instance</li>
+<li>Start the instance</li>
+</ol>
+<p>The playbook executes this in a sequential manner.</p>
+<p>Before running the Playbook, you will have to substitute the <code>kms_key_id</code> - Encryption key ID that was created under KMS service for performing a volume encryption. This value is in <code>include.yml</code>.</p>
+<h2><a class="header" href="#post-incident" id="post-incident">Post incident</a></h2>
+<p>After all EBS volumes that need to be encrypted have been successfully encrypted the runbook for creating EBS volumes should be updated to ensure that by default when new volumes are created they are encrypted.</p>
+<h1><a class="header" href="#security-dashboard-using-cloud-native" id="security-dashboard-using-cloud-native">Security Dashboard using Cloud Native</a></h1>
+<p>A security dashboard gives us visibility. This is especially important once we have security related checks that run automatically, visibility becomes even more important.</p>
+<h2><a class="header" href="#what-should-a-good-security-dashboard-contain" id="what-should-a-good-security-dashboard-contain">What should a good security dashboard contain</a></h2>
+<p>We will not attempt to answer that question. Primarily we are not experts in that domain.</p>
+<p>But lets try to answer the question from a different point of view.</p>
+<p>Can we create a security dashboard that doesn't require maintenance and management? It is possible if we use cloud native thinking along with a data driven static site.</p>
+<h1><a class="header" href="#building-a-security-dashboard" id="building-a-security-dashboard">Building a security dashboard</a></h1>
+<h2><a class="header" href="#jamstack" id="jamstack">JAMStack</a></h2>
+<p>JavaScript + APIs + Markup</p>
+<h3><a class="header" href="#hugo-static-site" id="hugo-static-site">Hugo Static Site</a></h3>
+<ul>
+<li>Using Hugo we create a custom short code</li>
+<li>We download the list of users at regular frequency and list them out</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

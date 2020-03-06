@@ -1,0 +1,33 @@
+---
+  - name: setting up vuln-s3 buckets
+    hosts: localhost
+    gather_facts: False
+    vars:
+      uniquename: "{{ lookup('env','uniquename') }}"
+      
+    tasks:
+      - name: creating buckets
+        local_action:
+          module: aws_s3
+          bucket: "{{ item.bname }}-{{ uniquename }}-autodefence"
+          mode: create
+          permission: "{{ item.priv }}"
+
+        with_items:
+          - { bname: 'lab', priv: 'public-read' }
+          - { bname: 'tftp', priv: 'public-read' }
+          - { bname: 'hr', priv: 'private' }
+          - { bname: 'email', priv: 'private' }
+      
+      - name: uploading data to cloud
+        local_action:
+          module: s3_sync
+          bucket: "{{ item.bname }}-{{ uniquename }}-autodefence"
+          file_root: "{{ item.root }}"
+          permission: "{{ item.priv }}"
+
+        with_items:
+          - { bname: 'lab', root: 'files/lab-uniqueid-autodefence/', priv: 'public-read' }
+          - { bname: 'tftp', root: 'files/tftp-uniqueid-autodefence/', priv: 'public-read' }
+          - { bname: 'hr', root: 'files/hr-uniqueid-autodefence/', priv: 'public-read' }
+          - { bname: 'email', root: 'files/email-uniqueid-autodefence/', priv: 'public-read' }

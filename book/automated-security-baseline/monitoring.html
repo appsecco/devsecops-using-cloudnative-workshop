@@ -1,0 +1,512 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Monitoring - DEVSECOPS ON AWS USING CLOUD-NATIVE SERVICES</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="../index.html">Welcome</a></li><li class="expanded affix "><a href="../intro/index.html">Introduction</a></li><li class="expanded affix "><a href="../intro/agenda.html">Agenda</a></li><li class="expanded affix "><a href="../about-us/about-akash.html">About - Akash Mahajan</a></li><li class="expanded affix "><a href="../about-us/about-sunesh.html">About - Sunesh Govindaraj</a></li><li class="expanded affix "><a href="../about-us/about-appsecco.html">About - Appsecco</a></li><li class="expanded affix "><a href="../intro/disclaimer.html">Disclaimer</a></li><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/index.html"><strong aria-hidden="true">1.</strong> Automated Defence against public S3 buckets</a></li><li><ol class="section"><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/deployment.html"><strong aria-hidden="true">1.1.</strong> Deployment</a></li><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/attack.html"><strong aria-hidden="true">1.2.</strong> Attack</a></li><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/defence.html"><strong aria-hidden="true">1.3.</strong> Defence</a></li></ol></li><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/index.html"><strong aria-hidden="true">2.</strong> Automated Defence against SSH Bruteforce</a></li><li><ol class="section"><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/deployment-of-machine.html"><strong aria-hidden="true">2.1.</strong> Deployment of Machine</a></li><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/deployment-of-defence.html"><strong aria-hidden="true">2.2.</strong> Deployment of Defence</a></li><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/defence-working-against-attack.html"><strong aria-hidden="true">2.3.</strong> Defence working against Attack</a></li></ol></li><li class="expanded "><a href="../automated-security-baseline/index.html"><strong aria-hidden="true">3.</strong> Automated Security Baseline for a new AWS Account</a></li><li><ol class="section"><li class="expanded "><a href="../automated-security-baseline/what-all-to-consider.html"><strong aria-hidden="true">3.1.</strong> What to consider</a></li><li class="expanded "><a href="../automated-security-baseline/identity-and-access-management.html"><strong aria-hidden="true">3.2.</strong> Identity and Access Management</a></li><li class="expanded "><a href="../automated-security-baseline/logging.html"><strong aria-hidden="true">3.3.</strong> Logging</a></li><li class="expanded "><a href="../automated-security-baseline/monitoring.html" class="active"><strong aria-hidden="true">3.4.</strong> Monitoring</a></li><li class="expanded "><a href="../automated-security-baseline/networking.html"><strong aria-hidden="true">3.5.</strong> Networking</a></li><li class="expanded "><a href="../automated-security-baseline/other-benchmark-rules.html"><strong aria-hidden="true">3.6.</strong> Other Benchmark Rules that do not apply</a></li></ol></li><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/index.html"><strong aria-hidden="true">4.</strong> Playbooks and Runbooks for Incident Response</a></li><li><ol class="section"><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/runbooks.html"><strong aria-hidden="true">4.1.</strong> Runbooks</a></li><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/playbooks.html"><strong aria-hidden="true">4.2.</strong> Playbooks</a></li><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/real-world-usage-and-examples.html"><strong aria-hidden="true">4.3.</strong> Real World Usage and Examples</a></li></ol></li><li class="expanded "><a href="../security-dashboard/index.html"><strong aria-hidden="true">5.</strong> Security Dashboard using Cloud-Native services</a></li><li><ol class="section"><li class="expanded "><a href="../security-dashboard/building-a-security-dashboard.html"><strong aria-hidden="true">5.1.</strong> Building a security dashboard</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">DEVSECOPS ON AWS USING CLOUD-NATIVE SERVICES</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#monitoring" id="monitoring">Monitoring</a></h1>
+<p><strong>Create SNS Topic and Subscription</strong></p>
+<p>This SNS topic and subscription will be used for all monitoring enabled in the next steps</p>
+<pre><code>aws sns create-topic --name monitoring-topic
+</code></pre>
+<pre><code>aws sns subscribe \
+--topic-arn &lt;ARN_OF_TOPIC&gt; \
+--protocol email \
+--notification-endpoint &lt;admin@example.com&gt;
+</code></pre>
+<blockquote>
+<p>&lt;ARN_OF_TOPIC&gt; and <a href="mailto:admin@example.com">admin@example.com</a> should be substituted with proper values before running the previous command. Note down the ARN of topic for future use</p>
+</blockquote>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-unauthorized-api-calls" id="ensure-a-log-metric-filter-and-alarm-exist-for-unauthorized-api-calls">Ensure a log metric filter and alarm exist for unauthorized API calls</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name UnAuthorizedAPICalls \
+--filter-pattern '{($.errorCode=&quot;*UnauthorizedOperation&quot;) || ($.errorCode=&quot;AccessDenied*&quot;)}' \
+--metric-transformations metricName=UnAuthorizedAPICalls,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name UnAuthorizedAPICallsAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name UnAuthorizedAPICalls \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-management-console-sign-in-without-mfa" id="ensure-a-log-metric-filter-and-alarm-exist-for-management-console-sign-in-without-mfa">Ensure a log metric filter and alarm exist for Management Console sign-in without MFA</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name NoMFASignIn \
+--filter-pattern '{($.eventName=&quot;ConsoleLogin&quot;) &amp;&amp; ($.additionalEventData.MFAUsed !=&quot;Yes&quot;)}' \
+--metric-transformations metricName=NoMFASignIn,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name NoMFASignInAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name NoMFASignIn \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-usage-of-root-account" id="ensure-a-log-metric-filter-and-alarm-exist-for-usage-of-root-account">Ensure a log metric filter and alarm exist for usage of &quot;root&quot; account</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name RootAccountUsage \
+--filter-pattern '{$.userIdentity.type=&quot;Root&quot; &amp;&amp; $.userIdentity.invokedBy NOT EXISTS &amp;&amp; $.eventType !=&quot;AwsServiceEvent&quot;}' \
+--metric-transformations metricName=RootAccountUsage,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name RootAccountUsageAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name RootAccountUsage \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-iam-policy-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-iam-policy-changes">Ensure a log metric filter and alarm exist for IAM policy changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name IAMPolicyChange \
+--filter-pattern '{($.eventName=DeleteGroupPolicy) || ($.eventName=DeleteRolePolicy) || ($.eventName=DeleteUserPolicy) || ($.eventName=PutGroupPolicy) || ($.eventName=PutRolePolicy) || ($.eventName=PutUserPolicy) || ($.eventName=CreatePolicy) || ($.eventName=DeletePolicy) || ($.eventName=CreatePolicyVersion) || ($.eventName=DeletePolicyVersion) || ($.eventName=AttachRolePolicy) || ($.eventName=DetachRolePolicy) || ($.eventName=AttachUserPolicy) || ($.eventName=DetachUserPolicy) || ($.eventName=AttachGroupPolicy) || ($.eventName=DetachGroupPolicy)}' \
+--metric-transformations metricName=IAMPolicyChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name IAMPolicyChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name IAMPolicyChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-cloudtrail-configuration-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-cloudtrail-configuration-changes">Ensure a log metric filter and alarm exist for CloudTrail configuration changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name CloudTrailConfigChange \
+--filter-pattern '{($.eventName=CreateTrail) || ($.eventName=UpdateTrail) || ($.eventName=DeleteTrail) || ($.eventName=StartLogging) || ($.eventName=StopLogging)}' \
+--metric-transformations metricName=CloudTrailConfigChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name CloudTrailConfigChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name CloudTrailConfigChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-aws-management-console-authentication-failures" id="ensure-a-log-metric-filter-and-alarm-exist-for-aws-management-console-authentication-failures">Ensure a log metric filter and alarm exist for AWS Management Console authentication failures</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name ConsoleAuthFailure \
+--filter-pattern '{($.eventName=ConsoleLogin) &amp;&amp; ($.errorMessage=&quot;Failed authentication&quot;)}' \
+--metric-transformations metricName=ConsoleAuthFailure,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name ConsoleAuthFailureAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name ConsoleAuthFailure \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-disabling-or-scheduled-deletion-of-customer-created-cmks" id="ensure-a-log-metric-filter-and-alarm-exist-for-disabling-or-scheduled-deletion-of-customer-created-cmks">Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer created CMKs</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name DisableOrDeleteCMK \
+--filter-pattern '{($.eventSource=kms.amazonaws.com) &amp;&amp; (($.eventName=DisableKey) || ($.eventName=ScheduleKeyDeletion))}' \
+--metric-transformations metricName=DisableOrDeleteCMK,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name DisableOrDeleteCMKAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name DisableOrDeleteCMK \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-s3-bucket-policy-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-s3-bucket-policy-changes">Ensure a log metric filter and alarm exist for S3 bucket policy changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name S3bucketPolicyChange \
+--filter-pattern '{($.eventSource=s3.amazonaws.com) &amp;&amp; (($.eventName=PutBucketAcl) || ($.eventName=PutBucketPolicy) || ($.eventName=PutBucketCors) || ($.eventName=PutBucketLifecycle) || ($.eventName=PutBucketReplication) || ($.eventName=DeleteBucketPolicy) || ($.eventName=DeleteBucketCors) || ($.eventName=DeleteBucketLifecycle) || ($.eventName=DeleteBucketReplication))}' \
+--metric-transformations metricName=S3bucketPolicyChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name S3bucketPolicyChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name S3bucketPolicyChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-aws-config-configuration-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-aws-config-configuration-changes">Ensure a log metric filter and alarm exist for AWS Config configuration changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name AWSConfigChange \
+--filter-pattern '{($.eventSource=config.amazonaws.com) &amp;&amp; (($.eventName=StopConfigurationRecorder) || ($.eventName=DeleteDeliveryChannel) || ($.eventName=PutDeliveryChannel) || ($.eventName=PutConfigurationRecorder))}' \
+--metric-transformations metricName=AWSConfigChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name AWSConfigChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name AWSConfigChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-security-group-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-security-group-changes">Ensure a log metric filter and alarm exist for security group changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name SecurityGroupChange \
+--filter-pattern '{($.eventName=AuthorizeSecurityGroupIngress) || ($.eventName=AuthorizeSecurityGroupEgress) || ($.eventName=RevokeSecurityGroupIngress) || ($.eventName=RevokeSecurityGroupEgress) || ($.eventName=CreateSecurityGroup) || ($.eventName=DeleteSecurityGroup)}' \
+--metric-transformations metricName=SecurityGroupChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name SecurityGroupChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name SecurityGroupChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-access-control-lists-nacl" id="ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-access-control-lists-nacl">Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name NACLChange \
+--filter-pattern '{($.eventName=CreateNetworkAcl) || ($.eventName=CreateNetworkAclEntry) || ($.eventName=DeleteNetworkAcl) || ($.eventName=DeleteNetworkAclEntry) || ($.eventName=ReplaceNetworkAclEntry) || ($.eventName=ReplaceNetworkAclAssociation)}' \
+--metric-transformations metricName=NACLChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name NACLChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name NACLChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-gateways" id="ensure-a-log-metric-filter-and-alarm-exist-for-changes-to-network-gateways">Ensure a log metric filter and alarm exist for changes to network gateways</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name NetworkGatewayChange \
+--filter-pattern '{($.eventName=CreateCustomerGateway) || ($.eventName=DeleteCustomerGateway) || ($.eventName=AttachInternetGateway) || ($.eventName=CreateInternetGateway) || ($.eventName=DeleteInternetGateway) || ($.eventName=DetachInternetGateway)}' \
+--metric-transformations metricName=NetworkGatewayChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name NetworkGatewayChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name NetworkGatewayChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-route-table-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-route-table-changes">Ensure a log metric filter and alarm exist for route table changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name RouteTableChange \
+--filter-pattern '{($.eventName=CreateRoute) || ($.eventName=CreateRouteTable) || ($.eventName=ReplaceRoute) || ($.eventName=ReplaceRouteTableAssociation) || ($.eventName=DeleteRouteTable) || ($.eventName=DeleteRoute) || ($.eventName=DisassociateRouteTable)}' \
+--metric-transformations metricName=RouteTableChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name RouteTableChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name RouteTableChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+<h3><a class="header" href="#ensure-a-log-metric-filter-and-alarm-exist-for-vpc-changes" id="ensure-a-log-metric-filter-and-alarm-exist-for-vpc-changes">Ensure a log metric filter and alarm exist for VPC changes</a></h3>
+<p><em>Create Metric Filter</em></p>
+<pre><code>aws logs put-metric-filter \
+--log-group-name &lt;CloudTrail_Log_Group_Name&gt; \
+--filter-name VPCChange \
+--filter-pattern '{($.eventName=CreateVpc) || ($.eventName=DeleteVpc) || ($.eventName=ModifyVpcAttribute) || ($.eventName=AcceptVpcPeeringConnection) || ($.eventName=CreateVpcPeeringConnection) || ($.eventName=DeleteVpcPeeringConnection) || ($.eventName=RejectVpcPeeringConnection) || ($.eventName=AttachClassicLinkVpc) || ($.eventName=DetachClassicLinkVpc) || ($.eventName=DisableVpcClassicLink) || ($.eventName=EnableVpcClassicLink)}' \
+--metric-transformations metricName=VPCChange,metricNamespace=LogMetrics,metricValue=1
+</code></pre>
+<p><em>Create Alarm using above Metric</em></p>
+<pre><code>aws cloudwatch put-metric-alarm \
+--alarm-name VPCChangeAlarm \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--metric-name VPCChange \
+--namespace LogMetrics \
+--period 300 \
+--statistic Sum \
+--threshold 1 \
+--alarm-actions &lt;ARN_OF_TOPIC&gt;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../automated-security-baseline/logging.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../automated-security-baseline/networking.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../automated-security-baseline/logging.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../automated-security-baseline/networking.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+- name: Stop instance
+  local_action:
+    module: ec2
+    region: "{{ region }}"
+    instance_ids: "{{ item.instance_id }}"
+    state: stopped
+    wait: yes
+
+- name: Create snapshots for each volume
+  local_action:
+    module: ec2_snapshot
+    region: "{{ region }}"
+    instance_id: "{{ item.instance_id }}"
+    device_name: "{{ item.block_device_mappings[0].device_name }}"
+    wait: yes
+
+  register: snapshot
+
+- debug:
+    msg: "{{ snapshot }}"
+
+- name: Detach existing volume attached to the instance
+  local_action:
+    module: ec2_vol
+    region: "{{ region }}"
+    id: "{{ item.block_device_mappings[0].ebs.volume_id }}"
+    instance: None
+
+- debug:
+    msg: "{{ (vol_info | json_query(query)) | int}}" 
+  vars:
+    query: "volumes[?attachment_set.instance_id==`{{ item.instance_id }}`] | [0].size "
+
+- name: Create a volume using the created snapshot
+  local_action:
+    module: ec2_vol
+    region: "{{ region }}"
+    instance: "{{ item.instance_id }}"
+    snapshot: "{{ snapshot.snapshot_id }}"
+    zone: "{{ item.placement.availability_zone }}"
+    encrypted: true
+    kms_key_id: <kms_key_id>
+    device_name: /dev/sda1
+    volume_type: gp2
+    volume_size: "{{ (vol_info | json_query(size_query)) | int}}"
+    tags: "{{ vol_info | json_query(tags_query) }}"
+  vars:
+    size_query: "volumes[?attachment_set.instance_id==`{{ item.instance_id }}`] | [0].size "
+    tags_query: "volumes[?attachment_set.instance_id==`{{ item.instance_id }}`] | [0].tags "
+
+- name: Start instance
+  local_action:
+    module: ec2
+    region: "{{ region }}"
+    instance_ids: "{{ item.instance_id }}"
+    state: running

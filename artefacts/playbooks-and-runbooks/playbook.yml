@@ -1,0 +1,37 @@
+---
+  - name: Encrypting production AWS EBS volumes 
+    hosts: localhost
+    gather_facts: False
+    vars:
+      region: "ap-south-1"
+    tasks:
+
+      - name: Get instance info of production instances
+        local_action:
+          module: ec2_instance_info
+          region: "{{ region }}"
+          filters:
+            "tag:createdFor": volume-encryption
+
+        register: instance_info
+
+      - debug:
+          msg: "{{ instance_info }}"
+      
+      - name: Get volume information for each production instance
+        local_action:
+          module: ec2_vol_info
+          region: "{{ region }}"
+          filters:
+            "tag:createdFor": volume-encryption
+            encrypted: ['false']
+        
+        register: vol_info
+
+      - debug:
+          msg: "{{ vol_info }}"
+
+      - name: Stop instance, create snapshot, detach volume, create encrypted volume from snapshot and attach, start instance  
+        include: include.yml
+
+        with_items: "{{ instance_info.instances }}"

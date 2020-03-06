@@ -1,0 +1,14 @@
+baseURL = "/"
+#languageCode = "en-us"
+title = "Security Dashboard"
+theme = "bare"
+
+[params]
+mainSections = ["posts","page"]
+author = "Appsecco@nullcon"
+email = "akash@appsecco, sunesh@appsecco.com"
+description = 'Learning By Doing - DevSecOps using Cloud Native'
+postcss = false
+# Include the author name in the <title> of articles
+includeAuthorInTitle = true
+disableAttribution = true

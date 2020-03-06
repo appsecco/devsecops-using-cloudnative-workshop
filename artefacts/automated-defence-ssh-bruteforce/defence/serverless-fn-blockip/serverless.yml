@@ -1,0 +1,41 @@
+service: automated-defence
+
+stage: dev
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${file(./config.js):getRegion}
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'ec2:*'
+      Resource: '*'
+    - Effect: 'Allow'
+      Action:
+        - 'cloudwatch:*'
+      Resource: '*'
+    - Effect: 'Allow'
+      Action:
+        - 'dynamodb:*'
+      Resource: '*'
+
+functions:
+  blockip:
+    handler: handler.blockip
+    events:
+     - http:
+         path: blockip
+         method: get
+         
+  handleexpiry:
+    handler: handler.handleexpiry
+    events:
+     - schedule: rate(1 minute)
+
+  actionhistory:
+    handler: handler.actionhistory
+    events:
+     - http:
+         path: actionhistory
+         method: get

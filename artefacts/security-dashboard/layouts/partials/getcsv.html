@@ -1,0 +1,20 @@
+<table>
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Console Access</th>
+          <th>2FA Enabled</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{ $url := "static/users.csv" }}
+    {{ $sep := "," }}
+   {{ range $i, $r := getCSV $sep $url }}
+    <tr>
+      <td>{{ index $r 0 }}</td>
+      <td>{{ index $r 1 }}</td>
+      <td>{{ index $r 2 }}</td>
+    </tr>
+      {{ end }}
+    </tbody>
+  </table>

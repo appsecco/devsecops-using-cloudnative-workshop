@@ -1,0 +1,22 @@
+service: automated-defence-vpc
+
+stage: dev
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${file(./config.js):getRegion}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - logs:*
+        - sts:AssumeRole
+      Resource: "*"
+
+functions:  
+  vpchandler:
+    handler: handler.vpchandler
+    events:
+     - sns:
+        arn: arn:aws:sns:ap-south-1:394310921697:bruteforce-trigger-lambda-topic
+        topicName: bruteforce-trigger-lambda-topic

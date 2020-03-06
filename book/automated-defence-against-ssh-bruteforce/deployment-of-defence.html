@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Deployment of Defence - DEVSECOPS ON AWS USING CLOUD-NATIVE SERVICES</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="../index.html">Welcome</a></li><li class="expanded affix "><a href="../intro/index.html">Introduction</a></li><li class="expanded affix "><a href="../intro/agenda.html">Agenda</a></li><li class="expanded affix "><a href="../about-us/about-akash.html">About - Akash Mahajan</a></li><li class="expanded affix "><a href="../about-us/about-sunesh.html">About - Sunesh Govindaraj</a></li><li class="expanded affix "><a href="../about-us/about-appsecco.html">About - Appsecco</a></li><li class="expanded affix "><a href="../intro/disclaimer.html">Disclaimer</a></li><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/index.html"><strong aria-hidden="true">1.</strong> Automated Defence against public S3 buckets</a></li><li><ol class="section"><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/deployment.html"><strong aria-hidden="true">1.1.</strong> Deployment</a></li><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/attack.html"><strong aria-hidden="true">1.2.</strong> Attack</a></li><li class="expanded "><a href="../automated-defence-against-public-s3-buckets/defence.html"><strong aria-hidden="true">1.3.</strong> Defence</a></li></ol></li><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/index.html"><strong aria-hidden="true">2.</strong> Automated Defence against SSH Bruteforce</a></li><li><ol class="section"><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/deployment-of-machine.html"><strong aria-hidden="true">2.1.</strong> Deployment of Machine</a></li><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/deployment-of-defence.html" class="active"><strong aria-hidden="true">2.2.</strong> Deployment of Defence</a></li><li class="expanded "><a href="../automated-defence-against-ssh-bruteforce/defence-working-against-attack.html"><strong aria-hidden="true">2.3.</strong> Defence working against Attack</a></li></ol></li><li class="expanded "><a href="../automated-security-baseline/index.html"><strong aria-hidden="true">3.</strong> Automated Security Baseline for a new AWS Account</a></li><li><ol class="section"><li class="expanded "><a href="../automated-security-baseline/what-all-to-consider.html"><strong aria-hidden="true">3.1.</strong> What to consider</a></li><li class="expanded "><a href="../automated-security-baseline/identity-and-access-management.html"><strong aria-hidden="true">3.2.</strong> Identity and Access Management</a></li><li class="expanded "><a href="../automated-security-baseline/logging.html"><strong aria-hidden="true">3.3.</strong> Logging</a></li><li class="expanded "><a href="../automated-security-baseline/monitoring.html"><strong aria-hidden="true">3.4.</strong> Monitoring</a></li><li class="expanded "><a href="../automated-security-baseline/networking.html"><strong aria-hidden="true">3.5.</strong> Networking</a></li><li class="expanded "><a href="../automated-security-baseline/other-benchmark-rules.html"><strong aria-hidden="true">3.6.</strong> Other Benchmark Rules that do not apply</a></li></ol></li><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/index.html"><strong aria-hidden="true">4.</strong> Playbooks and Runbooks for Incident Response</a></li><li><ol class="section"><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/runbooks.html"><strong aria-hidden="true">4.1.</strong> Runbooks</a></li><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/playbooks.html"><strong aria-hidden="true">4.2.</strong> Playbooks</a></li><li class="expanded "><a href="../playbooks-and-runbooks-for-incident-response/real-world-usage-and-examples.html"><strong aria-hidden="true">4.3.</strong> Real World Usage and Examples</a></li></ol></li><li class="expanded "><a href="../security-dashboard/index.html"><strong aria-hidden="true">5.</strong> Security Dashboard using Cloud-Native services</a></li><li><ol class="section"><li class="expanded "><a href="../security-dashboard/building-a-security-dashboard.html"><strong aria-hidden="true">5.1.</strong> Building a security dashboard</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">DEVSECOPS ON AWS USING CLOUD-NATIVE SERVICES</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#deployment-of-defence" id="deployment-of-defence">Deployment of Defence</a></h1>
+<p>We will follow the below sections to setup CloudWatch and Serverless defence against SSH Bruteforce attacks</p>
+<h2><a class="header" href="#installing-cloudwatch-agent-on-ssh-instance" id="installing-cloudwatch-agent-on-ssh-instance">Installing CloudWatch Agent on SSH Instance</a></h2>
+<p>We will need to create an IAM Role for the CloudWatch agent running in EC2 instance to be able to push logs to CloudWatch. For this we will create a role with the policy <code>CloudWatchAgentServerPolicy</code> and will have to attach it to the Instance.</p>
+<p>Once we have attached the role to the instance, we can download and install the agent from the official repo. Log in into the machine and run the below commands,</p>
+<pre><code>wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+</code></pre>
+<p>Once the file download is complete, we can install the debian package,</p>
+<pre><code>sudo dpkg -i amazon-cloudwatch-agent.deb
+</code></pre>
+<p>Once the installation is complete, we will need to create the configuration for CloudWatch Agent to run with. </p>
+<pre><code class="language-json">{
+  &quot;agent&quot;: {
+    &quot;run_as_user&quot;: &quot;root&quot;
+  },
+  &quot;logs&quot;: {
+    &quot;logs_collected&quot;: {
+      &quot;files&quot;: {
+        &quot;collect_list&quot;: [
+          {
+            &quot;file_path&quot;: &quot;/var/log/auth.log&quot;,
+            &quot;log_group_name&quot;: &quot;ssh_logs&quot;,
+            &quot;log_stream_name&quot;: &quot;{instance_id}&quot;
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+<p>Copy and save the above configuration to a file <code>config.json</code> in your Linux machine. Configuration can also be generated interactively using the <code>config-wizard</code> command - </p>
+<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+</code></pre>
+<p>Essentially in the configuration we ask the CloudWatch agent to look for <code>/var/log/auth.log</code> where the ssh logs are stored and push them to CloudWatch under the log group <code>ssh_logs</code> with the stream name same as the instance ID.</p>
+<p>To start the CloudWatch Agent run the below command,</p>
+<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:configuration-file-path -s
+</code></pre>
+<blockquote>
+<p>Update the <code>configuration-file-path</code> field with the absolute path to your <code>config.json</code> file</p>
+<p><code>-a</code> is for choosing an Action through which we do <code>fetch-config</code> to select our config file</p>
+<p><code>-m</code> is for mode</p>
+<p><code>-s</code> is to start the agent</p>
+</blockquote>
+<p>We can verify that the logs are being pushed to CloudWatch by heading to CloudWatch console - Log Groups section</p>
+<h2><a class="header" href="#create-cloudwatch-metric-and-alarm" id="create-cloudwatch-metric-and-alarm">Create CloudWatch Metric and Alarm</a></h2>
+<p>Now that we have the SSH logs in CloudWatch, we can create a metric to filter failed attempts and use an alarm to notify us about a possible attack. To create a metric, we need to understand the pattern in which SSH logs are created. </p>
+<p>A sample failed attempt log would look like below,</p>
+<pre><code>Feb 24 06:58:52 ip-172-31-40-226 sshd[3340]: Invalid user mno from 127.0.0.1 port 38168
+</code></pre>
+<p>To filter the logs that fall under the above pattern, we will use this filter,</p>
+<pre><code>[Mon, day, timestamp, ip, id, status=&quot;Invalid&quot;, user, username, from, srcip, ...]
+</code></pre>
+<p>To create the metric, we will use the below command,</p>
+<pre><code class="language-bash">aws logs put-metric-filter \
+--log-group-name ssh_logs \
+--filter-name FailedSSHAttempts \
+--filter-pattern '[Mon, day, timestamp, ip, id, status=&quot;Invalid&quot;, user, username, from, srcip, ...]' \
+--metric-transformations \
+metricName=failed_ssh_attempts,metricNamespace=LogMetrics,metricValue=1,defaultValue=0
+</code></pre>
+<p>The command will create a metric with the name <code>failed_ssh_attempts</code> that we can further use it for creating an alarm. Before creating an Alarm we will need an Simple Notification Service (SNS) topic created which would notified when there is an alarm. To create a SNS topic,</p>
+<pre><code class="language-bash">aws sns create-topic --name bruteforce-trigger-lambda
+</code></pre>
+<p>The above command will create a SNS topic <code>bruteforce-trigger-lambda</code> and return the Arn for the resource. We will use that Arn to create the alarm using the below command,</p>
+<pre><code class="language-bash">aws cloudwatch put-metric-alarm \
+--alarm-name SSHBruteForceAlarm \
+--metric-name failed_ssh_attempts \
+--namespace LogMetrics \
+--statistic Sum \
+--period 300 \
+--threshold 5 \
+--comparison-operator GreaterThanOrEqualToThreshold \
+--evaluation-periods 1 \
+--alarm-actions arn:aws:sns:ap-south-1:394310921697:bruteforce-trigger-lambda
+</code></pre>
+<p>The command will create an alarm using the metric that we had created before and if there are more than or equal to 5 events present during a time period of 5 minutes (300 seconds), then the alarm will trigger the SNS topic <code>bruteforce-trigger-lambda</code> that we created.</p>
+<h2><a class="header" href="#serverless-defence-for-identifying-the-ip-and-blocking-it" id="serverless-defence-for-identifying-the-ip-and-blocking-it">Serverless Defence for identifying the IP and blocking it</a></h2>
+<p>We will deploy two serverless applications on Lambda. The first serverless function will have HTTP endpoints that would block a given IP and also show the blocking history for the Access Control List (ACL). All this data gets stored in DynamoDB to maintain history.</p>
+<p><code>cd</code> into the <code>serverless-fn-blockip</code> directory. The following parameters are configurable before deployment,</p>
+<ul>
+<li><strong>region</strong>: AWS Region to deploy in. ACL must be in the same region</li>
+<li><strong>accessToken</strong>: Access token used to authorize requests to block IPs</li>
+<li><strong>aclID</strong>: ACL that will be used for blocking</li>
+<li><strong>stateTableName</strong>: DynamoDB table that will be created to maintain current blocking state</li>
+<li><strong>historyTableName</strong>: DynamoDB table that will be created to maintain action history</li>
+<li><strong>ruleValidity</strong>: Time (in minutes) after which the IP is unblocked</li>
+</ul>
+<p>Configure the above fields in <code>config.js</code> file,</p>
+<pre><code class="language-javascript">module.exports = {
+    region: &quot;&lt;AWS_REGION&gt;&quot;,
+    accessToken: &quot;&lt;SOME_RANDOM_STRING&gt;&quot;,
+    aclId: &quot;&lt;VPC_ACL_ID&gt;&quot;,
+    stateTableName: &quot;ip_block_state&quot;,
+    historyTableName: &quot;ip_block_history&quot;,
+    ruleValidity: 10
+}
+</code></pre>
+<blockquote>
+<p>Make sure to modify at least the <strong>region</strong>, <strong>aclId</strong> and <strong>accessToken</strong> based on your requirements before deployment.</p>
+</blockquote>
+<p>To deploy the function we use <code>Serverless framework</code> which in turn would create a CloudFormation stack to get the required resources deployed.  <code>cd</code> into the directory and run the below commands,</p>
+<pre><code class="language-bash">npm install
+#Create DynamoDB tables
+node initDb.js
+serverless deploy
+</code></pre>
+<p>The deploy command would return the <code>endpoints</code> that we require once the stack is created. Note down the endpoints, for use in future.</p>
+<p>For the next Serverless function, <code>cd</code> into <code>serverless-fn-trigger</code> directory. The following parameters are configurable before deployment,</p>
+<ul>
+<li><strong>region</strong>: AWS Region to deploy in. Same as the previous function</li>
+<li><strong>logGroup</strong>: Name of the log group (in our case ssh_logs)</li>
+<li><strong>blockIPLambdaUrl</strong>: blockIP function's HTTP Endpoint returned in previous step</li>
+<li><strong>blockIPLambdaAccessToken</strong>: Access token used to authorize requests to block IPs</li>
+<li><strong>attackThreshold</strong>: Minimum number of events from a single IP to block the IP</li>
+<li><strong>startTimeOffset</strong>: Time offset from current time after which the requests are considered in minutes</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+	region: &quot;&lt;AWS_REGION&gt;&quot;,
+    logGroup: &quot;&lt;LOG_GROUP_NAME&gt;&quot;,
+    blockIPLambdaUrl: &quot;&lt;BLOCK_IP_ENDPOINT&gt;&quot;,
+    blockIPLambdaAccessToken: &quot;&lt;BLOCK_IP_ENDPOINT_ACCESS_TOKEN&gt;&quot;
+    attackThreshold: 3,
+    startTimeOffset: 5,
+}
+</code></pre>
+<blockquote>
+<p>Make sure to modify at least the <strong>region</strong>, <strong>logGroup</strong>, <strong>blockIPLambdaUrl</strong> and <strong>blockIPLambdaAccessToken</strong> before deployment</p>
+</blockquote>
+<p>In the <code>serverless.yml</code> configuration file, we will have to add the SNS Topic ARN and name as the trigger for the lambda function that is to be deployed. This will connect our previous infrastructure (CloudWatch Logs, Metric and Alarms) with the Lambda functions.</p>
+<p>Update the values <code>&lt;AWS_ARN_SNS_TOPIC&gt;</code> and <code>&lt;SNS_TOPIC_NAME&gt;</code> under the <code>functions</code> section of the config file,</p>
+<pre><code class="language-yaml">functions:  
+  vpchandler:
+    handler: handler.vpchandler
+    events:
+     - sns:
+        arn: &lt;AWS_ARN_SNS_TOPIC&gt;
+        topicName: &lt;SNS_TOPIC_NAME&gt;
+</code></pre>
+<p>Once done, to deploy the serverless application, run the below commands,</p>
+<pre><code class="language-bash">npm install
+serverless deploy
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../automated-defence-against-ssh-bruteforce/deployment-of-machine.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../automated-defence-against-ssh-bruteforce/defence-working-against-attack.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../automated-defence-against-ssh-bruteforce/deployment-of-machine.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../automated-defence-against-ssh-bruteforce/defence-working-against-attack.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

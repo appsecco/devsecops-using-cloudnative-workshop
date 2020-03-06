@@ -1,0 +1,46 @@
+<!-- <table>
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Console Access</th>
+          <th>2FA Enabled</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{ $url := "static/csv/users.csv" }}
+    {{ $sep := "," }}
+   {{ range $i, $r := getCSV $sep $url }}  
+    <tr>
+      <td>{{ index $r 0 }}</td>
+      <td>{{ index $r 1 }}</td>
+      <td>{{ index $r 2 }}</td>
+    </tr>
+      {{ end }}
+    </tbody>
+  </table> -->
+
+  <table border="1">
+    {{ $url := "static/csv/users.csv" }}
+    {{ $sep := "," }}
+    {{ range $i, $r := getCSV $sep $url }}
+  
+  {{ if eq $i 0 }}
+  <thead>
+    <tr>
+      {{ range $r }}
+        <th>{{ . | humanize}}</th>
+      {{end}}
+    </tr>
+  </thead>
+{{else}}
+  <tbody>
+    <tr>
+      {{ range  $r }}
+      <td>{{ . |humanize }}</td>
+      {{end}}
+    </tr>
+  </tbody>
+{{end}}
+
+{{ end }}
+</table>
