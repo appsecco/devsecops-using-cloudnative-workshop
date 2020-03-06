@@ -1,9 +1,10 @@
 module.exports = {
-	region: "ap-south-1",										// AWS Region to deploy in
-    logGroup: "ssh_logs",                              // CloudWatch Log Group to monitor
-    blockIPLambdaUrl: "https://0lpsm5ywug.execute-api.ap-south-1.amazonaws.com/dev/blockip",
+    region: "<AWS_REGION>",
+    logGroup: "<LOG_GROUP_NAME>",
+    blockIPLambdaUrl: "<BLOCK_IP_ENDPOINT>",
+    blockIPLambdaAccessToken: "<BLOCK_IP_ENDPOINT_ACCESS_TOKEN>"
     attackThreshold: 3,
-    startTimeOffset: 10,                                        // Time offset from current time after which the requests are considered
+    startTimeOffset: 5,
 }
 
 // Used by serverless.yml

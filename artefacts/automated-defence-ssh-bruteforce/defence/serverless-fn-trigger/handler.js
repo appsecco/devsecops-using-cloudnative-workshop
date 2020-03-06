@@ -40,7 +40,7 @@ module.exports.vpchandler = function (){
 function blockIP(ip){
   axios.get(config.blockIPLambdaUrl, {
     params: {
-      accessToken: "JqQDdibtm2xPqDmk",
+      accessToken: config.blockIPLambdaAccessToken,
       ip: ip
     }
   })

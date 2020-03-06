@@ -1,10 +1,10 @@
 module.exports = {
-	region: "ap-south-1",										// AWS Region to deploy in, ACL must be in the same region	    
-    accessToken: "JqQDdibtm2xPqDmk",
-    aclId: "acl-49846b22", 										// Id of the ACL that will be used for blocking
-	stateTableName: "ip_block_state", 							// DynamoDB table that will be created to maintain current state
-    historyTableName: "ip_block_history",                       // DynamoDB table that will be created to maintain action history
-    ruleValidity: 10                                           	// Time (in minutes) after which the IP is unblocked
+    region: "<AWS_REGION>",
+    accessToken: "<SOME_RANDOM_STRING>",
+    aclId: "<VPC_ACL_ID>",
+    stateTableName: "ip_block_state",
+    historyTableName: "ip_block_history",
+    ruleValidity: 10
 }
 
 // Used by serverless.yml to dermine deployment region
