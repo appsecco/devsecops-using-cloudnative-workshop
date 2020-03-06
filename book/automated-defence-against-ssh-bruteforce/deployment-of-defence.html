@@ -221,7 +221,7 @@ metricName=failed_ssh_attempts,metricNamespace=LogMetrics,metricValue=1,defaultV
 --threshold 5 \
 --comparison-operator GreaterThanOrEqualToThreshold \
 --evaluation-periods 1 \
---alarm-actions arn:aws:sns:ap-south-1:394310921697:bruteforce-trigger-lambda
+--alarm-actions <ARN_OF_SNS_TOPIC> 
 </code></pre>
 <p>The command will create an alarm using the metric that we had created before and if there are more than or equal to 5 events present during a time period of 5 minutes (300 seconds), then the alarm will trigger the SNS topic <code>bruteforce-trigger-lambda</code> that we created.</p>
 <h2><a class="header" href="#serverless-defence-for-identifying-the-ip-and-blocking-it" id="serverless-defence-for-identifying-the-ip-and-blocking-it">Serverless Defence for identifying the IP and blocking it</a></h2>
